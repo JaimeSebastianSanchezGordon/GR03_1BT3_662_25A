@@ -59,7 +59,7 @@
         </div>
     </main>
 
-    <div class="registroEmprendimiento" id="registro">
+    <div class="registroEmprendimiento" id="registroEmprendimiento">
         <div class="tituloRegistro">
             <h3>Registrar emprendimiento</h3>
         </div>

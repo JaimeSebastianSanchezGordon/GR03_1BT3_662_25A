@@ -1,6 +1,9 @@
-var btn = document.querySelector(".botonRegistroEmprendimiento");
-var popRegistro = document.getElementById("registro");
+// PARA EMPRENDIMIENTO
+var btnEmprendimiento = document.querySelector(".botonRegistroEmprendimiento");
+var popRegistroEmprendimiento = document.getElementById("registroEmprendimiento");
 
-btn.onclick = function (){
-    popRegistro.classList.add("show");
+btnEmprendimiento.onclick = function (){
+    popRegistroEmprendimiento.classList.add("show");
 }
+
+

@@ -2,6 +2,8 @@
     box-sizing: border-box;
 }
 
+/*================PARA EMPRENDIMIENTOS==========================*/
+
 .pantallaCompletaEmprendimiento{
     display: flex;
     flex-direction: column;
@@ -67,13 +69,12 @@
     border: solid black;
     display: none;
     position: fixed;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro con transparencia */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 10px;
+    width: 30%;
 }
 
 .tituloRegistro{
@@ -91,3 +92,57 @@
 .registroEmprendimiento.show{
     display: block;
 }
+
+
+/*================ PARA EVENTOS ==========================*/
+
+.eventos{
+    border: solid red;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+}
+
+.evento{
+    width: 23%;
+    border: solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenidoEvento{
+    border: solid purple;
+    display: flex;
+}
+
+.informacionEvento{
+    border: solid green;
+    display: flex;
+    flex-direction: column;
+}
+
+.nombreEvento{
+    text-align: center;
+}
+
+.registroEvento{
+    border: solid black;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 10px;
+    width: 30%;
+}
+
+.registroEvento.show{
+    display: block;
+}
+
+
+
+
+
