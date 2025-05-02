@@ -17,7 +17,7 @@
             <a href="<%= request.getContextPath() %>/mostrarEmprendimientos">EMPRENDIMIENTOS</a>
             <a href="<%= request.getContextPath() %>/jsp/eventos.jsp">EVENTOS</a>
             <a href="<%= request.getContextPath() %>/jsp/recursos.jsp">RECOLECCION RECURSOS</a>
-            <a href="">SEGURIDAD</a>
+            <a href="<%= request.getContextPath() %>/jsp/seguridad.jsp">SEGURIDAD</a>
         </nav>
     </aside>
     <main class="pantallaEmprendimientos">

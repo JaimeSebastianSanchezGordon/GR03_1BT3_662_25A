@@ -5,6 +5,6 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <welcome-file-list>
-    <welcome-file>jsp/eventos.jsp</welcome-file>
+    <welcome-file>jsp/recursos.jsp</welcome-file>
   </welcome-file-list>
 </web-app>

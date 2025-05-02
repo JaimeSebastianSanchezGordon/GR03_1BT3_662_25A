@@ -9,6 +9,7 @@
     flex-direction: column;
     border: solid red;
     min-height: 100vh;
+    padding: 10px;
 }
 
 .titulo{
@@ -63,6 +64,8 @@
 .emprendimiento{
     width: 215px;
     border: solid black;
+    gap: 10px;
+    padding: 10px;
 }
 
 .registroEmprendimiento{
@@ -109,6 +112,7 @@
     border: solid black;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 .contenidoEvento{
@@ -139,6 +143,122 @@
 }
 
 .registroEvento.show{
+    display: block;
+}
+
+/*============PARA SEGURIDAD=============*/
+
+.seguridades{
+    border: solid yellow;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.seguridad{
+    padding: 10px;
+    border: solid black;
+    display: flex;
+}
+
+.imagenSeguridad{
+    padding: 10px;
+    border: solid purple;
+}
+
+.contenidoSeguridad{
+    padding: 10px;
+    width: 100%;
+    border: solid purple;
+    display: flex;
+    flex-direction: column;
+}
+
+.votosSeguridad{
+    padding: 10px;
+    border: solid purple;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.registroSeguridad{
+    border: solid black;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 10px;
+    width: 30%;
+}
+
+.registroSeguridad.show{
+    display: block;
+}
+
+/*============PARA RECURSOS=============*/
+
+.recursos{
+    border: solid yellow;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 20px;
+    justify-content: space-evenly;
+
+}
+
+.recurso{
+    padding: 10px;
+    border: solid purple;
+    display: flex;
+    width: 49%;
+
+}
+.tipoRecurso{
+    border: solid green;
+    padding: 10px;
+    width: 25%;
+    text-align: center;
+}
+
+.ejemploRecurso{
+    border: solid green;
+    padding: 10px;
+    text-align: center;
+    width: 25%;
+}
+.cantidadRecurso{
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+    border: solid green;
+}
+.imagenRecurso{
+    width: 25%;
+    text-align: center;
+    padding: 10px;
+    border: solid green;
+}
+
+
+
+.registroRecurso{
+    border: solid black;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 10px;
+    width: 30%;
+}
+
+.registroRecurso.show{
     display: block;
 }
 

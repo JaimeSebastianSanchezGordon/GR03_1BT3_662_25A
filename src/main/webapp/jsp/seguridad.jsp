@@ -25,31 +25,36 @@
 
     <main class="pantallaEmprendimientos">
         <div class="encabezadoEmprendimiento">
-            <h2>RECURSOS</h2>
-            <button type="submit" class="botonRegistroRecurso">Agregar seguridad</button>
+            <h2>SEGURIDAD</h2>
+            <button type="submit" class="botonRegistroSeguridad">Agregar seguridad</button>
         </div>
 
-        <div class="recursos">
+        <div class="seguridades">
             <%
-                for (int i = 0; i < 4; i++) {
+                for (int i = 0; i < 3; i++) {
             %>
-            <div class="recurso">
-                <div class="tipoRecurso">
-                    <h3>ROPA</h3>
+            <div class="seguridad">
+                <div class="imagenSeguridad">
+                    <h3>IMAGEN</h3>
                 </div>
-                <div class="ejemploRecurso">
-                    <h3>PANTALON</h3>
-                </div>
-                <div class="cantidadRecurso">
-                    <div>
-                        <h3>Cantidad</h3>
+                <div class="contenidoSeguridad">
+                    <div class="tituloSeguridad">
+                        <h3>TITULO</h3>
+                    </div>
+                    <div class="contenidoSeguridad">
+                        <p>CONTEXTO</p>
                     </div>
                     <div>
-                        <h3>2</h3>
+                        <button class="botonVotarSeguridad">VOTAR</button>
                     </div>
                 </div>
-                <div class="imagenRecurso">
-                    <h2>IMAGEN</h2>
+                <div class="votosSeguridad">
+                    <div>
+                        <h3>Numero de votaciones:</h3>
+                    </div>
+                    <div>
+                        <h1>10</h1>
+                    </div>
                 </div>
             </div>
             <%
@@ -58,28 +63,26 @@
         </div>
     </main>
 
-    <div class="registroRecurso" id="registroRecurso">
+    <div class="registroSeguridad" id="registroSeguridad">
         <div class="tituloRegistro">
-            <h3>Registrar recurso</h3>
+            <h3>Registrar seguridad</h3>
         </div>
         <div class="datosRegistro">
             <form action="" method="POST">
-                Tipo recurso: <br>
-                <input type="text" name="tipoRecurso"><br>
-                Nombre recurso: <br>
-                <input type="text" name="nombreRecurso"><br>
-                Cantidad recurso: <br>
-                <input type="text" name="cantidadRecurso"><br>
+                Nombre: <br>
+                <input type="text" name="nombre"><br>
+                Descripcion: <br>
+                <input type="text" name="descripcion"><br>
                 Imagen:<br>
                 <input type="text" name="imagen"><br>
-                <button type="submit">Registrar recurso</button>
+                <button type="submit">Registrar seguridad</button>
             </form>
         </div>
     </div>
 
 </div>
 
-<script src="<%= request.getContextPath() %>/js/recursos.js"></script>
+<script src="<%= request.getContextPath() %>/js/seguridad.js"></script>
 
 </body>
 </html>
