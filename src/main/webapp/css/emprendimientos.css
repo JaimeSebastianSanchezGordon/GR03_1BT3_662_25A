@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+}
+
+.pantallaCompletaEmprendimiento{
+    display: flex;
+    flex-direction: column;
+    border: solid red;
+    min-height: 100vh;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.menu{
+    border: solid blue;
+
+}
+
+.menu nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.menu a{
+    font-size: 18px;
+    text-decoration: none;
+
+}
+
+
+.pantallaEmprendimientos{
+    border: solid blue;
+    flex: 1;
+    padding: 30px;
+}
+
+.noEmprendimientos{
+    border: solid red;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.encabezadoEmprendimiento{
+    justify-content: space-between;
+    display: flex;
+    border: solid yellow;
+}
+
+.emprendimientos{
+    padding: 10px;
+    border: solid yellow;
+    display: flex;      /* coloca los elementos en fila */
+    flex-wrap: wrap;
+    gap: 20px;          /* separa los elementos */
+}
+
+.emprendimiento{
+    width: 215px;
+    border: solid black;
+}
+
+.registroEmprendimiento{
+    border: solid black;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro con transparencia */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 10px;
+}
+
+.tituloRegistro{
+    display: flex;
+    justify-content: space-between;
+}
+
+.datosRegistro form{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 6px;
+}
+
+.registroEmprendimiento.show{
+    display: block;
+}
