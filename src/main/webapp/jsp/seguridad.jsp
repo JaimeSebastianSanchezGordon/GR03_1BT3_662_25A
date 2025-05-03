@@ -1,3 +1,5 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.barrial.Seguridad" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -9,7 +11,9 @@
 
     <div class="seguridades">
         <%
-            for (int i = 0; i < 3; i++) {
+            List<Seguridad> seguridades = (List<Seguridad>) request.getAttribute("seguridades");
+            if (seguridades != null && !seguridades.isEmpty()){
+                for (Seguridad seguridad: seguridades) {
         %>
         <div class="seguridad">
             <div class="imagenSeguridad">
@@ -17,10 +21,10 @@
             </div>
             <div class="contenidoSeguridad">
                 <div class="tituloSeguridad">
-                    <h3>TITULO</h3>
+                    <h3><%=seguridad.getNombre()%></h3>
                 </div>
                 <div class="contenidoSeguridad">
-                    <p>CONTEXTO</p>
+                    <p><%=seguridad.getDescripcion()%></p>
                 </div>
                 <div>
                     <button class="botonVotarSeguridad">VOTAR</button>
@@ -31,9 +35,16 @@
                     <h3>Numero de votaciones:</h3>
                 </div>
                 <div>
-                    <h1>10</h1>
+                    <h1><%=seguridad.getNumVotos()%></h1>
                 </div>
             </div>
+        </div>
+        <%
+                }
+        } else {
+        %>
+        <div class="noHaySeguridad">
+            <h2>NO HAY SEGURIDADES</h2>
         </div>
         <%
             }
@@ -45,7 +56,7 @@
             <h3>Registrar seguridad</h3>
         </div>
         <div class="datosRegistro">
-            <form action="" method="POST">
+            <form action="mostrarSeguridad" method="POST">
                 Nombre: <br>
                 <input type="text" name="nombre"><br>
                 Descripcion: <br>
