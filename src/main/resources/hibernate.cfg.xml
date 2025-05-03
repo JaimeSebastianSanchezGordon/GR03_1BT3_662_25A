@@ -8,7 +8,8 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
         <property name="hibernate.connection.url">
-            jdbc:sqlserver://GWNR71517\MSSQLSERVERENTER;database=AppWebBarrio;encrypt=true;trustServerCertificate=true
+<!--            jdbc:sqlserver://GWNR71517\MSSQLSERVERENTER;database=AppWebBarrio;encrypt=true;trustServerCertificate=true-->
+                jdbc:sqlserver://localhost:1433;databaseName=AppWeb;encrypt=true;trustServerCertificate=true
         </property>
 
         <property name="hibernate.connection.username">sa</property>
