@@ -9,6 +9,6 @@
   <display-name>MiBarrioApp</display-name>
 
   <welcome-file-list>
-    <welcome-file>jsp/baseM.jsp</welcome-file>
+    <welcome-file>/jsp/baseM.jsp</welcome-file>
   </welcome-file-list>
 </web-app>

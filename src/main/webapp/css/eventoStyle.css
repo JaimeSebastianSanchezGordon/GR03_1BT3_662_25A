@@ -8,6 +8,13 @@
     border-bottom: 2px solid #e0e0e0;
 }
 
+/*CUANDO NO HAY EVENTOS DISPONIBLES*/
+.noHayEventos{
+    text-align: center;
+}
+
+
+
 .encabezadoEmprendimiento h2 {
     color: #2c3e50;
     font-size: 1.8rem;

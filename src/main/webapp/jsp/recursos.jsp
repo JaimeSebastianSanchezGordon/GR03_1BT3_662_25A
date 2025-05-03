@@ -1,3 +1,5 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.barrial.Recurso" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -9,26 +11,35 @@
 
     <div class="recursos">
         <%
-            for (int i = 0; i < 4; i++) {
+            List<Recurso> recursos = (List<Recurso>) request.getAttribute("recursos");
+            if (recursos != null && !recursos.isEmpty()){
+                for (Recurso recurso: recursos){
         %>
         <div class="recurso">
             <div class="tipoRecurso">
-                <h3>ROPA</h3>
+                <h3><%=recurso.getTipo()%></h3>
             </div>
             <div class="ejemploRecurso">
-                <h3>PANTALON</h3>
+                <h3><%=recurso.getNombre()%></h3>
             </div>
             <div class="cantidadRecurso">
                 <div>
-                    <h3>Cantidad</h3>
+                    <h3>Cantidad:</h3>
                 </div>
                 <div>
-                    <h3>2</h3>
+                    <h3><%=recurso.getCantidad()%></h3>
                 </div>
             </div>
             <div class="imagenRecurso">
                 <h2>IMAGEN</h2>
             </div>
+        </div>
+        <%
+                }
+            } else {
+        %>
+        <div class="noHayRecursos">
+            <h2>NO HAY RECURSOS</h2>
         </div>
         <%
             }
@@ -43,7 +54,7 @@
             <h3>Registrar recurso</h3>
         </div>
         <div class="datosRegistro">
-            <form action="" method="POST">
+            <form action="mostrarRecursos" method="POST">
                 Tipo recurso: <br>
                 <input type="text" name="tipoRecurso"><br>
                 Nombre recurso: <br>
