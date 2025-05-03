@@ -1,63 +1,42 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.barrial.Emprendimiento" %>
 <%@ page import="java.util.List" %>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <title>EMPRENDIMIENTOS</title>
-    <link href="<%= request.getContextPath() %>/css/emprendimientos.css" rel="stylesheet">
-</head>
-<body>
-<div class="pantallaCompletaEmprendimiento">
-    <div class="titulo">
-        <h1>COMUNICACION BARRIAL</h1>
+
+<c:set var="emprendimientoContent">
+    <div class="encabezadoEmprendimiento">
+        <h2>EMPRENDIMIENTOS</h2>
+        <button type="submit" class="botonRegistroEmprendimiento">Agregar emprendimiento</button>
     </div>
-    <aside class="menu">
-        <nav>
-            <a href="<%= request.getContextPath() %>/jsp/inicio.jsp">INICIO</a>
-            <a href="<%= request.getContextPath() %>/mostrarEmprendimientos">EMPRENDIMIENTOS</a>
-            <a href="<%= request.getContextPath() %>/jsp/eventos.jsp">EVENTOS</a>
-            <a href="<%= request.getContextPath() %>/jsp/recursos.jsp">RECOLECCION RECURSOS</a>
-            <a href="<%= request.getContextPath() %>/jsp/seguridad.jsp">SEGURIDAD</a>
-        </nav>
-    </aside>
 
-    <main class="pantallaEmprendimientos">
-        <div class="encabezadoEmprendimiento">
-            <h2>EMPRENDIMIENTOS</h2>
-            <button type="submit" class="botonRegistroEmprendimiento">Agregar emprendimiento</button>
-        </div>
-
-        <div class="emprendimientos">
-            <%
-                List<Emprendimiento> emprendimientos = (List<Emprendimiento>) request.getAttribute("emprendimientos");
-                if (emprendimientos!= null && !emprendimientos.isEmpty()) {
-                    for (Emprendimiento emprendimiento: emprendimientos) {
-            %>
-            <div class="emprendimiento">
-                <div class="tituloEmprendimiento">
-                    <h3><%=emprendimiento.getNombre()%></h3>
-                </div>
-                <div class="contenidoEmprendimiento">
-                    <p><%=emprendimiento.getDescripcion()%></p>
-                </div>
-                <div>
-                    <h3>AQUI VA IMAGEN</h3>
-                </div>
+    <div class="emprendimientos">
+        <%
+            List<Emprendimiento> emprendimientos = (List<Emprendimiento>) request.getAttribute("emprendimientos");
+            if (emprendimientos!= null && !emprendimientos.isEmpty()) {
+                for (Emprendimiento emprendimiento: emprendimientos) {
+        %>
+        <div class="emprendimiento">
+            <div class="tituloEmprendimiento">
+                <h3><%=emprendimiento.getNombre()%></h3>
             </div>
-            <%
-                }
-            } else{
-            %>
-            <div class="noEmprendimientos">
-                <h2> NO HAY EMPRENDIMIENTOS </h2>
+            <div class="contenidoEmprendimiento">
+                <p><%=emprendimiento.getDescripcion()%></p>
             </div>
-            <%
-                }
-            %>
+            <div>
+                <h3>AQUI VA IMAGEN</h3>
+            </div>
         </div>
-    </main>
+        <%
+            }
+        } else{
+        %>
+        <div class="noEmprendimientos">
+            <h2> NO HAY EMPRENDIMIENTOS </h2>
+        </div>
+        <%
+            }
+        %>
+    </div>
 
     <div class="registroEmprendimiento" id="registroEmprendimiento">
         <div class="tituloRegistro">
@@ -75,11 +54,13 @@
             </form>
         </div>
     </div>
+</c:set>
 
-</div>
+<jsp:include page="/jsp/baseM.jsp">
+    <jsp:param name="title" value="MiBarrioApp-Emprendimiento"/>
+    <jsp:param name="contentPage" value="${emprendimientoContent}"/>
+    <jsp:param name="extra_js" value="${pageContext.request.contextPath}/js/emprendimiento.js"/>
+    <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/emprendimientos.css"/>
+</jsp:include>
 
-<script src="<%= request.getContextPath() %>/js/emprendimiento.js"></script>
-
-</body>
-</html>
 

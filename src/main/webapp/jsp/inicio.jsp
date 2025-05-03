@@ -1,33 +1,14 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.barrial.Emprendimiento" %>
-<%@ page import="java.util.List" %>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <title>INICIO</title>
-    <link href="<%= request.getContextPath() %>/css/emprendimientos.css" rel="stylesheet">
-</head>
-<body>
-<div class="pantallaCompletaEmprendimiento">
-    <div class="titulo">
-        <h1>COMUNICACION BARRIAL</h1>
-    </div>
-    <aside class="menu">
-        <nav>
-            <a href="<%= request.getContextPath() %>/jsp/inicio.jsp">INICIO</a>
-            <a href="<%= request.getContextPath() %>/mostrarEmprendimientos">EMPRENDIMIENTOS</a>
-            <a href="<%= request.getContextPath() %>/jsp/eventos.jsp">EVENTOS</a>
-            <a href="<%= request.getContextPath() %>/jsp/recursos.jsp">RECOLECCION RECURSOS</a>
-            <a href="<%= request.getContextPath() %>/jsp/seguridad.jsp">SEGURIDAD</a>
-        </nav>
-    </aside>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-    <main class="pantallaInicio">
+<c:set var="inicioContent">
+    <h1>Pruebas</h1>
+    <main class="pantallaEmprendimientos">
+        <h1>Hola</h1>
     </main>
+</c:set>
 
-</div>
-
-</body>
-</html>
-
+<jsp:include page="/jsp/baseM.jsp">
+    <jsp:param name="title" value="MiBarrioApp-Inicio"/>
+    <jsp:param name="contentPage" value="${inicioContent}"/>
+</jsp:include>
