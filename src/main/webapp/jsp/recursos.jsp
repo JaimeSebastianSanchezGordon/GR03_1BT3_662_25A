@@ -6,7 +6,7 @@
 <c:set var="recursoContent">
     <div class="encabezadoEmprendimiento">
         <h2>RECURSOS</h2>
-        <button type="submit" class="botonRegistroRecurso">Agregar seguridad</button>
+        <button type="submit" class="botonRegistroRecurso">Agregar recurso</button>
     </div>
 
     <div class="recursos">
@@ -72,6 +72,6 @@
 <jsp:include page="/jsp/baseM.jsp">
     <jsp:param name="title" value="MiBarrioApp-Recurso"/>
     <jsp:param name="contentPage" value="${recursoContent}"/>
-    <jsp:param name="extra_js" value="${pageContext.request.contextPath}/js/recursos.js"/>
-    <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/emprendimientos.css"/>
+    <jsp:param name="extra_js" value="${pageContext.request.contextPath}/js/recursoJs.js"/>
+    <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/styleRecurso.css"/>
 </jsp:include>

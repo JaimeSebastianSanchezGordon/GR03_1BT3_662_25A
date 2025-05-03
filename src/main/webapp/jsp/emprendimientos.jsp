@@ -59,8 +59,8 @@
 <jsp:include page="/jsp/baseM.jsp">
     <jsp:param name="title" value="MiBarrioApp-Emprendimiento"/>
     <jsp:param name="contentPage" value="${emprendimientoContent}"/>
-    <jsp:param name="extra_js" value="${pageContext.request.contextPath}/js/emprendimiento.js"/>
-    <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/emprendimientos.css"/>
+    <jsp:param name="extra_js" value="${pageContext.request.contextPath}/js/emprendimientoJs.js"/>
+    <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/styleEmprendimiento.css"/>
 </jsp:include>
 
 

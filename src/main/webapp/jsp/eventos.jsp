@@ -72,6 +72,6 @@
 <jsp:include page="/jsp/baseM.jsp">
     <jsp:param name="title" value="MiBarrioApp-Evento"/>
     <jsp:param name="contentPage" value="${eventoContent}"/>
-    <jsp:param name="extra_js" value="${pageContext.request.contextPath}/js/eventos.js"/>
-    <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/eventoStyle.css"/>
+    <jsp:param name="extra_js" value="${pageContext.request.contextPath}/js/eventoJs.js"/>
+    <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/styleEvento.css"/>
 </jsp:include>

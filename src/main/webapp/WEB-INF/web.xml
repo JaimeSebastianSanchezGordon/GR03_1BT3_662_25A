@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app
+
         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
@@ -9,6 +10,6 @@
   <display-name>MiBarrioApp</display-name>
 
   <welcome-file-list>
-    <welcome-file>/jsp/baseM.jsp</welcome-file>
+    <welcome-file>/jsp/inicio.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
