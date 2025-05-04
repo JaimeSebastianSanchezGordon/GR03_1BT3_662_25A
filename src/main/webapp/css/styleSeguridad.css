@@ -34,24 +34,28 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-
 .seguridades {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2rem;
     padding: 0 2rem;
-}
+    width: 100%;
+    max-width: 1450px;
+    margin: 0 auto;
 
+}
 
 .seguridad {
     background: white;
     border-radius: 10px;
-    overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     display: grid;
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: 400px 1fr 200px;
     min-height: 180px;
+    width: 100%;
+    max-width: 1450px;
+    border: 3px solid #2c3e50;
 }
 
 .seguridad:hover {
@@ -62,10 +66,12 @@
 
 .imagenSeguridad {
     background-color: #f8f9fa;
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: center;
     padding: 1rem;
+    grid-row: 1;
+    grid-column: 1;
 }
 
 .imagenSeguridad h3 {
@@ -96,15 +102,20 @@
     margin: 0.5rem 0;
     font-size: 0.9rem;
     line-height: 1.4;
+    display: grid;
+    grid-row: 1;
+    grid-column: 2;
 }
 
 .votosSeguridad {
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: space-between;
     margin-top: 0.5rem;
     padding-top: 0.5rem;
     border-top: 1px solid #eee;
+    grid-row: 1;
+    grid-column: 3;
 }
 
 .votosSeguridad h3 {
