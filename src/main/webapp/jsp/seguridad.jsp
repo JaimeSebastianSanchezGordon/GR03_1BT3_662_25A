@@ -52,8 +52,10 @@
     </div>
 
     <div class="registroSeguridad" id="registroSeguridad">
-        <div class="tituloRegistro">
-            <h3>Registrar seguridad</h3>
+        <div class="tipoSeguridad">
+            <div class="tituloRegistro">
+                <h3>Registrar seguridad</h3>
+            </div>
         </div>
         <div class="datosRegistro">
             <form action="mostrarSeguridad" method="POST">
