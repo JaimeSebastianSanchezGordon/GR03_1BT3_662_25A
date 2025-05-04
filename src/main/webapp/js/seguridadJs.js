@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         seguridad.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(-5px)';
-            this.querySelector('.tituloSeguridad h3').style.color = '#2c3e50';
+            this.querySelector('.tituloSeguridad').style.color = '#2c3e50';
         });
     });
 
