@@ -1,22 +1,19 @@
-package com.barrial;
+package com.barrial.Entity;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Seguridad")
-public class Seguridad {
+@Table(name = "Emprendimiento")
+public class Emprendimiento {
     @Id
     @Column(name = "nombre")
     private String nombre;
     @Basic
     @Column(name = "descripcion")
     private String descripcion;
-    @Basic
-    @Column(name = "numVotos")
-    private int numVotos;
 
-    public Seguridad() {
-        this.numVotos = 0;
+    public Emprendimiento() {
+
     }
 
     public String getNombre() {
@@ -35,20 +32,17 @@ public class Seguridad {
         this.descripcion = descripcion;
     }
 
-    public int getNumVotos() {
-        return numVotos;
-    }
-
-    public void setNumVotos(int numVotos) {
-        this.numVotos = numVotos;
+    public Emprendimiento(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
     @Override
     public String toString() {
-        return "Seguridad{" +
+        return "Emprendimiento{" +
                 "nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", numVotos=" + numVotos +
                 '}';
     }
 }
+

@@ -10,6 +10,6 @@
   <display-name>MiBarrioApp</display-name>
 
   <welcome-file-list>
-    <welcome-file>/jsp/inicio.jsp</welcome-file>
+    <welcome-file>mostrarEmprendimientos</welcome-file>
   </welcome-file-list>
 </web-app>

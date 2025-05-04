@@ -1,4 +1,4 @@
-package com.barrial;
+package com.barrial.Entity;
 
 import jakarta.persistence.*;
 

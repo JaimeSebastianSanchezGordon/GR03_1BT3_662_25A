@@ -1,24 +1,22 @@
-package com.barrial;
+package com.barrial.Entity;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Evento")
-public class Evento {
+@Table(name = "Seguridad")
+public class Seguridad {
     @Id
-    @Column (name = "nombre")
+    @Column(name = "nombre")
     private String nombre;
     @Basic
-    @Column (name = "descripcion")
+    @Column(name = "descripcion")
     private String descripcion;
     @Basic
-    @Column (name = "fecha")
-    private String fecha;
-    @Basic
-    @Column (name = "hora")
-    private String hora;
+    @Column(name = "numVotos")
+    private int numVotos;
 
-    public Evento() {
+    public Seguridad() {
+        this.numVotos = 0;
     }
 
     public String getNombre() {
@@ -37,29 +35,20 @@ public class Evento {
         this.descripcion = descripcion;
     }
 
-    public String getFecha() {
-        return fecha;
+    public int getNumVotos() {
+        return numVotos;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
+    public void setNumVotos(int numVotos) {
+        this.numVotos = numVotos;
     }
 
     @Override
     public String toString() {
-        return "Evento{" +
+        return "Seguridad{" +
                 "nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", fecha='" + fecha + '\'' +
-                ", hora='" + hora + '\'' +
+                ", numVotos=" + numVotos +
                 '}';
     }
 }

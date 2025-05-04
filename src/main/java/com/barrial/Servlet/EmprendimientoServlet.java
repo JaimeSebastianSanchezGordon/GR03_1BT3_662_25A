@@ -1,7 +1,8 @@
 package com.barrial.Servlet;
 
-import com.barrial.Emprendimiento;
-import com.barrial.Hibernate;
+import com.barrial.DTO.EmprendimientoDTO;
+import com.barrial.Entity.Emprendimiento;
+import com.barrial.Service.EmprendimientoService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,15 +16,12 @@ public class EmprendimientoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Emprendimiento e = new Emprendimiento();
+        List<EmprendimientoDTO> emprendimientosDTO = EmprendimientoService.obtenerDatos();
 
-        List<Emprendimiento> emprendimientos = Hibernate.obtenerDatos(e);
-
-        for (Emprendimiento emprendimiento : emprendimientos) {
+        for (EmprendimientoDTO emprendimiento : emprendimientosDTO){
             System.out.println(emprendimiento);
         }
-
-        request.setAttribute("emprendimientos", emprendimientos);
+        request.setAttribute("emprendimientos", emprendimientosDTO);
         request.getRequestDispatcher("jsp/emprendimientos.jsp").forward(request, response);
     }
 
@@ -33,13 +31,9 @@ public class EmprendimientoServlet extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String descripcion = request.getParameter("descripcion");
 
-        Emprendimiento e = new Emprendimiento();
-        e.setNombre(nombre);
-        e.setDescripcion(descripcion);
+        EmprendimientoDTO emprendimientoDTO = new EmprendimientoDTO(nombre, descripcion);
 
-        Hibernate.guardarEnBaseDeDatos(e);
-
-        System.out.println("GUARDADO EN BASE DE DATOS");
+        EmprendimientoService.guardarEnBase(emprendimientoDTO);
 
         response.sendRedirect("mostrarEmprendimientos");
 

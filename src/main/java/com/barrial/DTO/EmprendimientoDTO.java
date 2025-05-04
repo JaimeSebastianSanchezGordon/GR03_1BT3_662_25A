@@ -1,19 +1,12 @@
-package com.barrial;
+package com.barrial.DTO;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "Emprendimiento")
-public class Emprendimiento {
-    @Id
-    @Column(name = "nombre")
+public class EmprendimientoDTO {
     private String nombre;
-    @Basic
-    @Column(name = "descripcion")
     private String descripcion;
 
-    public Emprendimiento() {
-
+    public EmprendimientoDTO(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
     public String getNombre() {
@@ -32,17 +25,11 @@ public class Emprendimiento {
         this.descripcion = descripcion;
     }
 
-    public Emprendimiento(String nombre, String descripcion) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-    }
-
     @Override
     public String toString() {
-        return "Emprendimiento{" +
+        return "EmprendimientoDTO{" +
                 "nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 '}';
     }
 }
-

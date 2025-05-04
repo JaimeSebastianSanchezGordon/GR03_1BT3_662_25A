@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="com.barrial.Emprendimiento" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.barrial.DTO.EmprendimientoDTO" %>
 
 <c:set var="emprendimientoContent">
     <div class="encabezadoEmprendimiento">
@@ -11,9 +11,9 @@
 
     <div class="emprendimientos">
         <%
-            List<Emprendimiento> emprendimientos = (List<Emprendimiento>) request.getAttribute("emprendimientos");
+            List<EmprendimientoDTO> emprendimientos = (List<EmprendimientoDTO>) request.getAttribute("emprendimientos");
             if (emprendimientos!= null && !emprendimientos.isEmpty()) {
-                for (Emprendimiento emprendimiento: emprendimientos) {
+                for (EmprendimientoDTO emprendimiento: emprendimientos) {
         %>
         <div class="emprendimiento">
             <div class="tituloEmprendimiento">
