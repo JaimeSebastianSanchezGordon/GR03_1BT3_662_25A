@@ -1,7 +1,13 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.barrial.Entity.Seguridad" %>
+<%@ page import="com.barrial.DTO.SeguridadDTO" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    response.setContentType("text/html;charset=UTF-8");
+    response.setCharacterEncoding("UTF-8");
+    request.setCharacterEncoding("UTF-8");
+%>
 
 <c:set var="seguridadContent">
     <div class="encabezadoEmprendimiento">
@@ -11,13 +17,13 @@
 
     <div class="seguridades">
         <%
-            List<Seguridad> seguridades = (List<Seguridad>) request.getAttribute("seguridades");
-            if (seguridades != null && !seguridades.isEmpty()){
-                for (Seguridad seguridad: seguridades) {
+            List<SeguridadDTO> seguridadeDTO = (List<SeguridadDTO>) request.getAttribute("seguridades");
+            if (seguridadeDTO != null && !seguridadeDTO.isEmpty()){
+                for (SeguridadDTO seguridad: seguridadeDTO) {
         %>
         <div class="seguridad">
             <div class="imagenSeguridad">
-                <h3>IMAGEN</h3>
+                <img width="100%" src="<%=seguridad.getImagen()%>" alt="Imagen de seguridad">
             </div>
             <div class="contenidoSeguridad">
                 <div class="tituloSeguridad">
@@ -27,12 +33,23 @@
                     <p><%=seguridad.getDescripcion()%></p>
                 </div>
                 <div>
-                    <button class="botonVotarSeguridad">VOTAR</button>
+                    <form action="mostrarSeguridad" method="POST">
+                        <input type="hidden" name="id" value="<%=seguridad.getId()%>">
+                        <button name="accion" value="votar" class="botonVotarSeguridad">VOTAR</button>
+                    </form>
+                </div>
+                <div>
+                    <form action="mostrarSeguridad" method="POST">
+                        <input type="hidden" name="id" value="<%=seguridad.getId()%>">
+                        <button name="accion" value="editar" class="botonVotarSeguridad"> EDITAR</button>
+                        <input type="hidden" name="id" value="<%=seguridad.getId()%>">
+                        <button name="accion" value="eliminar" class="botonVotarSeguridad">ELIMINAR</button>
+                    </form>
                 </div>
             </div>
             <div class="votosSeguridad">
                 <div>
-                    <h3>Numero de votaciones:</h3>
+                    <h3>Número de votaciones:</h3>
                 </div>
                 <div>
                     <h1><%=seguridad.getNumVotos()%></h1>
@@ -40,7 +57,7 @@
             </div>
         </div>
         <%
-                }
+            }
         } else {
         %>
         <div class="noHaySeguridad">
@@ -61,11 +78,11 @@
             <form action="mostrarSeguridad" method="POST">
                 Nombre: <br>
                 <input type="text" name="nombre"><br>
-                Descripcion: <br>
+                Descripción: <br>
                 <input type="text" name="descripcion"><br>
                 Imagen:<br>
                 <input type="text" name="imagen"><br>
-                <button type="submit">Registrar seguridad</button>
+                <button type="submit" name="accion" value="crear">Registrar seguridad</button>
             </form>
         </div>
     </div>

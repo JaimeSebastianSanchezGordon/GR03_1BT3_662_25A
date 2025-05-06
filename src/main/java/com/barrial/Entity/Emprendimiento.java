@@ -63,7 +63,6 @@ public class Emprendimiento {
     }
 
 
-
     @Override
     public String toString() {
         return "Emprendimiento{" +

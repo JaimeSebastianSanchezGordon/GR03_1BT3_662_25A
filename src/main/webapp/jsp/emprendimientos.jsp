@@ -23,7 +23,6 @@
                 <p><%=emprendimiento.getDescripcion()%></p>
             </div>
             <div class="imagenEmprendimiento">
-<%--                <img width="100%" src="https://www.produccion.gob.ec/wp-content/uploads/2020/04/IMG-20200402-WA0042.jpg" alt="ERROR AL CARGAR LA IMAGEN">--%>
                 <img width="100%" src="<%=emprendimiento.getImagen()%>" alt="ERROR AL CARGAR LA IMAGEN">
             </div>
             <div>
