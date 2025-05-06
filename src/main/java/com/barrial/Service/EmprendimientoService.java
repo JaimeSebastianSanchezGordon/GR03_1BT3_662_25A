@@ -16,23 +16,39 @@ public class EmprendimientoService {
     private static List<EmprendimientoDTO> EntityaDTO(List<Emprendimiento> emprendimientos) {
         List<EmprendimientoDTO> emprendimientosDTO = new ArrayList<>();
         for (Emprendimiento emprendimiento : emprendimientos) {
-            EmprendimientoDTO emprendimientoDAO = new EmprendimientoDTO(emprendimiento.getNombre(),emprendimiento.getDescripcion());
-            emprendimientosDTO.add(emprendimientoDAO);
+            EmprendimientoDTO emprendimientoDTO =
+                    new EmprendimientoDTO(
+                            emprendimiento.getNombre(),
+                            emprendimiento.getDescripcion(),
+                            emprendimiento.getImagen());
+            emprendimientoDTO.setId(emprendimiento.getId());
+            emprendimientosDTO.add(emprendimientoDTO);
         }
         return emprendimientosDTO;
     }
 
     public static void guardarEnBase(EmprendimientoDTO emprendimientoDTO) {
-        Emprendimiento emprendimiento = DTOaEntity(emprendimientoDTO);
-        EmprendimientoDAO.guardarEnBase(emprendimiento);
+        EmprendimientoDAO.guardarEnBase(DTOaEntity(emprendimientoDTO));
     }
 
     public static Emprendimiento DTOaEntity(EmprendimientoDTO emprendimientoDTO) {
         Emprendimiento emprendimiento = new Emprendimiento();
         emprendimiento.setNombre(emprendimientoDTO.getNombre());
         emprendimiento.setDescripcion(emprendimientoDTO.getDescripcion());
+        emprendimiento.setImagen(emprendimientoDTO.getImagen());
         return emprendimiento;
     }
 
+    public static void eliminarEmprendimiento(int idEmprendimiento) {
+        EmprendimientoDAO.eliminarEmprendimiento(obtenerEmprendimiento(idEmprendimiento));
+    }
 
+    private static Emprendimiento obtenerEmprendimiento(int idEmprendimiento) {
+        for (Emprendimiento emprendimiento : EmprendimientoDAO.obtenerDatos()) {
+            if (emprendimiento.getId() == idEmprendimiento) {
+                return emprendimiento;
+            }
+        }
+        return null;
+    }
 }

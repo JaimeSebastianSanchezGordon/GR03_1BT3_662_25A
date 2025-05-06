@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+
     // Animación de aparición para los emprendimientos
     const emprendimientos = document.querySelectorAll('.emprendimiento');
 

@@ -11,9 +11,9 @@
 
     <div class="emprendimientos">
         <%
-            List<EmprendimientoDTO> emprendimientos = (List<EmprendimientoDTO>) request.getAttribute("emprendimientos");
-            if (emprendimientos!= null && !emprendimientos.isEmpty()) {
-                for (EmprendimientoDTO emprendimiento: emprendimientos) {
+            List<EmprendimientoDTO> emprendimientosDTO = (List<EmprendimientoDTO>) request.getAttribute("emprendimientos");
+            if (emprendimientosDTO!= null && !emprendimientosDTO.isEmpty()) {
+                for (EmprendimientoDTO emprendimiento: emprendimientosDTO) {
         %>
         <div class="emprendimiento">
             <div class="tituloEmprendimiento">
@@ -22,8 +22,17 @@
             <div class="contenidoEmprendimiento">
                 <p><%=emprendimiento.getDescripcion()%></p>
             </div>
+            <div class="imagenEmprendimiento">
+<%--                <img width="100%" src="https://www.produccion.gob.ec/wp-content/uploads/2020/04/IMG-20200402-WA0042.jpg" alt="ERROR AL CARGAR LA IMAGEN">--%>
+                <img width="100%" src="<%=emprendimiento.getImagen()%>" alt="ERROR AL CARGAR LA IMAGEN">
+            </div>
             <div>
-                <h3>AQUI VA IMAGEN</h3>
+                <form action="mostrarEmprendimientos" method="POST">
+                    <input type="hidden" name="id" value="<%=emprendimiento.getId()%>">
+                    <button name="accion" value="editar"> EDITAR</button>
+                    <input type="hidden" name="id" value="<%=emprendimiento.getId()%>">
+                    <button name="accion" value="eliminar"> ELIMINAR</button>
+                </form>
             </div>
         </div>
         <%
@@ -37,7 +46,7 @@
             }
         %>
     </div>
-
+<%--    MODAL PARA REGISTRO--%>
     <div class="registroEmprendimiento" id="registroEmprendimiento">
         <div class="tituloRegistro">
             <h3>Registrar emprendimiento</h3>
@@ -50,10 +59,11 @@
                 <input type="text" name="descripcion"><br>
                 Imagen:<br>
                 <input type="text" name="imagen"><br>
-                <button type="submit">Registrar emprendimiento</button>
+                <button type="submit" name="accion" value="crear" >Registrar emprendimiento</button>
             </form>
         </div>
     </div>
+<%--    MODAL PARA EDITAR--%>
 </c:set>
 
 <jsp:include page="/jsp/baseM.jsp">

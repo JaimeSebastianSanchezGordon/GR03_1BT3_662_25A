@@ -20,4 +20,12 @@ public class EmprendimientoDAO {
         transaction.commit();
         session.close();
     }
+
+    public static void eliminarEmprendimiento(Emprendimiento emprendimiento) {
+        Session session = Hibernate.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        session.remove(emprendimiento);
+        transaction.commit();
+        session.close();
+    }
 }
