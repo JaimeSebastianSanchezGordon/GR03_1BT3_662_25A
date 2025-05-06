@@ -29,15 +29,30 @@ public class EmprendimientoServlet extends HttpServlet {
             case "eliminar":
                 eliminarEmprendimiento(request, response);
                 break;
+            case "editar":
+                editarEmprendimiento(request, response);
+                break;
         }
 
+    }
+
+    private void editarEmprendimiento(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int idEmprendimiento = Integer.parseInt(request.getParameter("id"));
+        String nombre = request.getParameter("nombre");
+        String descripcion = request.getParameter("descripcion");
+        String imagen = request.getParameter("imagen");
+        System.out.println("EL ID DEL EMPRENDIMIETNO ES: " + idEmprendimiento);
+
+        EmprendimientoService.editarEmprendimiento(idEmprendimiento, nombre, descripcion, imagen);
+
+        response.sendRedirect("mostrarEmprendimientos");
     }
 
     private void eliminarEmprendimiento(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         int idEmprendimiento = Integer.parseInt(request.getParameter("id"));
-        System.out.println("SE VA A ELIMINAR EL EMPRENDIMIENTO CON ID: " + idEmprendimiento);
 
         EmprendimientoService.eliminarEmprendimiento(idEmprendimiento);
 
@@ -46,15 +61,11 @@ public class EmprendimientoServlet extends HttpServlet {
 
     private void crearEmprendimiento (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("SE VA REGSITRAR UN NUEVO EMPRENDIMIENTO");
-        System.out.println(request.getParameter("imagen"));
-
         EmprendimientoDTO emprendimientoDTO =
                 new EmprendimientoDTO(
                         request.getParameter("nombre"),
                         request.getParameter("descripcion"),
                         request.getParameter("imagen"));
-
 
         EmprendimientoService.guardarEnBase(emprendimientoDTO);
 

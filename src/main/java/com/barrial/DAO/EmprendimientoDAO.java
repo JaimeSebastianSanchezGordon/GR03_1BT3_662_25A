@@ -28,4 +28,12 @@ public class EmprendimientoDAO {
         transaction.commit();
         session.close();
     }
+
+    public static void editarEmprendimiento(Emprendimiento emprendimiento) {
+        Session session = Hibernate.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        session.merge(emprendimiento);
+        transaction.commit();
+        session.close();
+    }
 }

@@ -43,6 +43,7 @@ public class EmprendimientoService {
         EmprendimientoDAO.eliminarEmprendimiento(obtenerEmprendimiento(idEmprendimiento));
     }
 
+    // PARA ELIMINAR
     private static Emprendimiento obtenerEmprendimiento(int idEmprendimiento) {
         for (Emprendimiento emprendimiento : EmprendimientoDAO.obtenerDatos()) {
             if (emprendimiento.getId() == idEmprendimiento) {
@@ -50,5 +51,22 @@ public class EmprendimientoService {
             }
         }
         return null;
+    }
+
+    // PARA EDITAR
+    private static Emprendimiento obtenerEmprendimiento(int idEmprendimiento, String nombre, String descripcion, String imagen) {
+        for (Emprendimiento emprendimiento : EmprendimientoDAO.obtenerDatos()) {
+            if (emprendimiento.getId() == idEmprendimiento) {
+                emprendimiento.setNombre(nombre);
+                emprendimiento.setDescripcion(descripcion);
+                emprendimiento.setImagen(imagen);
+                return emprendimiento;
+            }
+        }
+        return null;
+    }
+
+    public static void editarEmprendimiento(int idEmprendimiento, String nombre, String descripcion, String imagen) {
+        EmprendimientoDAO.editarEmprendimiento(obtenerEmprendimiento(idEmprendimiento, nombre, descripcion, imagen));
     }
 }
