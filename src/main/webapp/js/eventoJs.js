@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
+    //PARA EL MODAL DE EDITAR
+    const btnEditarEvento = document.querySelectorAll(".btnEditarEvento")
+    const modalEditarEvento = document.getElementById("modalEditarEvento")
+
+    btnEditarEvento.forEach(boton => {
+        boton.addEventListener("click", function () {
+            //Extrae los datos
+            const id = boton.getAttribute('data-id')
+            const nombre = boton.getAttribute('data-nombre');
+            const descripcion = boton.getAttribute('data-descripcion');
+            const fecha = boton.getAttribute('data-fecha');
+            const hora = boton.getAttribute('data-hora');
+            const imagen = boton.getAttribute('data-imagen');
+
+            // Asigna los datos a los campos del formulario
+            document.getElementById('id').value = id
+            document.getElementById('nombre').value = nombre;
+            document.getElementById('descripcion').value = descripcion;
+            document.getElementById('fecha').value = fecha;
+            document.getElementById('hora').value = hora;
+            document.getElementById('imagen').value = imagen;
+
+            // Mostrar el modal
+            modalEditarEvento.classList.add("show");
+        });
+    });
+
+
     // Animación de aparición para los eventos
     const eventos = document.querySelectorAll('.evento');
 
@@ -22,11 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.appendChild(overlay);
 
     // Abrir modal
-    btnEvento.addEventListener('click', function() {
+    btnEvento.onclick = function() {
         popRegistroEvento.classList.add("active");
         overlay.classList.add("active");
         document.body.style.overflow = 'hidden';
-    });
+    };
 
     // Cerrar modal haciendo click en el overlay
     overlay.addEventListener('click', function() {
@@ -47,6 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
             this.querySelector('.nombreEvento').style.backgroundColor = '#448B93';
         });
     });
+
+
 
     // Validación básica del formulario
     const form = document.querySelector('.datosRegistro form');

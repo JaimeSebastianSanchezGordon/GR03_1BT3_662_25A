@@ -8,11 +8,11 @@ public class EventoDTO {
     private String hora;
     private String imagen;
 
-    public EventoDTO( String hora, String fecha, String descripcion, String nombre, String imagen) {
-        this.hora = hora;
-        this.fecha = fecha;
-        this.descripcion = descripcion;
+    public EventoDTO(String nombre, String descripcion, String fecha, String hora, String imagen) {
         this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.hora = hora;
         this.imagen = imagen;
     }
 

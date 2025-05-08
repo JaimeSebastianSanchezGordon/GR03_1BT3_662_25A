@@ -12,13 +12,14 @@ import java.io.IOException;
 
 @WebServlet("/mostrarEventos")
 public class EventosServlet extends HttpServlet {
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         request.setAttribute("eventos", EventoService.obtenerDatos());
         request.getRequestDispatcher("jsp/eventos.jsp").forward(request, response);
     }
-
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion");

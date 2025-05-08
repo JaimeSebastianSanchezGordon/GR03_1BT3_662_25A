@@ -36,6 +36,8 @@ public class EventoService {
         Evento evento = new Evento();
         evento.setNombre(eventoDTO.getNombre());
         evento.setDescripcion(eventoDTO.getDescripcion());
+        evento.setFecha(eventoDTO.getFecha());
+        evento.setHora(eventoDTO.getHora());
         evento.setImagen(eventoDTO.getImagen());
         return evento;
     }
