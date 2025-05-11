@@ -6,6 +6,7 @@ import com.barrial.DAO.EmprendimientoDAO;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class EmprendimientoService {
 
@@ -14,13 +15,11 @@ public class EmprendimientoService {
     }
 
     private static List<EmprendimientoDTO> EntityaDTO(List<Emprendimiento> emprendimientos) {
-        List<EmprendimientoDTO> emprendimientosDTO = new ArrayList<>();
-        for (Emprendimiento emprendimiento : emprendimientos) {
-            EmprendimientoDTO emprendimientoDAO = new EmprendimientoDTO(emprendimiento.getNombre(),emprendimiento.getDescripcion());
-            emprendimientosDTO.add(emprendimientoDAO);
-        }
-        return emprendimientosDTO;
+        return emprendimientos.stream()
+                .map(e -> new EmprendimientoDTO(e.getNombre(), e.getDescripcion()))
+                .collect(Collectors.toList());
     }
+
 
     public static void guardarEnBase(EmprendimientoDTO emprendimientoDTO) {
         Emprendimiento emprendimiento = DTOaEntity(emprendimientoDTO);
