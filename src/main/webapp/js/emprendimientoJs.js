@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    //PARA EL MODAL DE EDITAR
+    const btnEditarEmprendimiento = document.querySelectorAll(".btnEditarEmprendimiento")
+    const modalEditarEmprendimiento = document.getElementById("modalEditarEmprendimiento")
+
+    btnEditarEmprendimiento.forEach(boton => {
+        boton.addEventListener("click", function () {
+            //Extrae los datos
+            const id = boton.getAttribute('data-id')
+            const nombre = boton.getAttribute('data-nombre');
+            const descripcion = boton.getAttribute('data-descripcion');
+            const imagen = boton.getAttribute('data-imagen');
+
+            // Asigna los datos a los campos del formulario
+            document.getElementById('id').value = id
+            document.getElementById('nombre').value = nombre;
+            document.getElementById('descripcion').value = descripcion;
+            document.getElementById('imagen').value = imagen;
+
+            // Mostrar el modal
+            modalEditarEmprendimiento.classList.add("show");
+        });
+    });
+
     // Animación de aparición para los emprendimientos
     const emprendimientos = document.querySelectorAll('.emprendimiento');
 

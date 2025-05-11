@@ -11,9 +11,9 @@
 
     <div class="emprendimientos">
         <%
-            List<EmprendimientoDTO> emprendimientos = (List<EmprendimientoDTO>) request.getAttribute("emprendimientos");
-            if (emprendimientos!= null && !emprendimientos.isEmpty()) {
-                for (EmprendimientoDTO emprendimiento: emprendimientos) {
+            List<EmprendimientoDTO> emprendimientosDTO = (List<EmprendimientoDTO>) request.getAttribute("emprendimientos");
+            if (emprendimientosDTO!= null && !emprendimientosDTO.isEmpty()) {
+                for (EmprendimientoDTO emprendimiento: emprendimientosDTO) {
         %>
         <div class="emprendimiento">
             <div class="tituloEmprendimiento">
@@ -22,8 +22,23 @@
             <div class="contenidoEmprendimiento">
                 <p><%=emprendimiento.getDescripcion()%></p>
             </div>
-            <div>
-                <h3>AQUI VA IMAGEN</h3>
+            <div class="imagenEmprendimiento">
+                <img width="100%" src="<%=emprendimiento.getImagen()%>" alt="ERROR AL CARGAR LA IMAGEN">
+            </div>
+            <div class="botonesEmprendimiento">
+                <div>
+                    <button class="btnEditarEmprendimiento"
+                            data-id="<%=emprendimiento.getId()%>"
+                            data-nombre="<%=emprendimiento.getNombre()%>"
+                            data-descripcion="<%=emprendimiento.getDescripcion()%>"
+                            data-imagen="<%=emprendimiento.getImagen()%>"> EDITAR</button>
+                </div>
+                <div>
+                    <form action="mostrarEmprendimientos" method="POST">
+                        <input type="hidden" name="id" value="<%=emprendimiento.getId()%>">
+                        <button name="accion" value="eliminar"> ELIMINAR</button>
+                    </form>
+                </div>
             </div>
         </div>
         <%
@@ -37,7 +52,7 @@
             }
         %>
     </div>
-
+<%--    MODAL PARA REGISTRO--%>
     <div class="registroEmprendimiento" id="registroEmprendimiento">
         <div class="tituloRegistro">
             <h3>Registrar emprendimiento</h3>
@@ -50,7 +65,26 @@
                 <input type="text" name="descripcion"><br>
                 Imagen:<br>
                 <input type="text" name="imagen"><br>
-                <button type="submit">Registrar emprendimiento</button>
+                <button type="submit" name="accion" value="crear" >Registrar emprendimiento</button>
+            </form>
+        </div>
+    </div>
+
+<%--    MODAL PARA EDITAR--%>
+    <div class="editarEmprendimiento" id="modalEditarEmprendimiento">
+        <div class="tituloRegistro">
+            <h3>Editar emprendimiento</h3>
+        </div>
+        <div class="datosRegistro">
+            <form action="mostrarEmprendimientos" method="POST">
+                <input type="hidden" name="id" id="id">
+                Nombre: <br>
+                <input type="text" name="nombre" id="nombre"><br>
+                Descripcion: <br>
+                <input type="text" name="descripcion" id="descripcion"><br>
+                Imagen:<br>
+                <input type="text" name="imagen" id="imagen"><br>
+                <button type="submit" name="accion" value="editar" >Editar emprendimiento</button>
             </form>
         </div>
     </div>

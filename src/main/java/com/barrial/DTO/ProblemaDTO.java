@@ -1,34 +1,19 @@
-package com.barrial.Entity;
+package com.barrial.DTO;
 
-import com.barrial.DAO.EmprendimientoDAO;
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "Emprendimiento")
-public class Emprendimiento {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+public class ProblemaDTO {
     private int id;
-    @Basic
-    @Column(name = "nombre")
     private String nombre;
-    @Basic
-    @Column(name = "descripcion")
     private String descripcion;
-    @Basic
-    @Column(name = "imagen")
+    private int numVotos;
     private String imagen;
 
-    public Emprendimiento(String nombre, String descripcion, String imagen) {
+    public ProblemaDTO(String nombre, String descripcion, int numVotos, String imagen) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.numVotos = numVotos;
         this.imagen = imagen;
     }
 
-    public Emprendimiento() {
-
-    }
 
     public int getId() {
         return id;
@@ -54,6 +39,14 @@ public class Emprendimiento {
         this.descripcion = descripcion;
     }
 
+    public int getNumVotos() {
+        return numVotos;
+    }
+
+    public void setNumVotos(int numVotos) {
+        this.numVotos = numVotos;
+    }
+
     public String getImagen() {
         return imagen;
     }
@@ -62,14 +55,13 @@ public class Emprendimiento {
         this.imagen = imagen;
     }
 
-
     @Override
     public String toString() {
-        return "Emprendimiento{" +
-                "id='" + id + '\'' +
+        return "SeguridadDTO{" +
+                "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
+                ", numVotos=" + numVotos + '\'' +
                 '}';
     }
 }
-

@@ -3,9 +3,13 @@ package com.barrial.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Seguridad")
-public class Seguridad {
+@Table(name = "Problema")
+public class Problema {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+    @Basic
     @Column(name = "nombre")
     private String nombre;
     @Basic
@@ -14,9 +18,27 @@ public class Seguridad {
     @Basic
     @Column(name = "numVotos")
     private int numVotos;
+    @Basic
+    @Column(name = "imagen")
+    private String imagen;
 
-    public Seguridad() {
+    public Problema(String nombre, String descripcion, int numVotos, String imagen) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.numVotos = numVotos;
+        this.imagen = imagen;
+    }
+
+    public Problema() {
         this.numVotos = 0;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -43,12 +65,21 @@ public class Seguridad {
         this.numVotos = numVotos;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     @Override
     public String toString() {
-        return "Seguridad{" +
-                "nombre='" + nombre + '\'' +
+        return "SeguridadDTO{" +
+                "id=" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", numVotos=" + numVotos +
+                ", numVotos=" + numVotos + '\'' +
                 '}';
     }
 }

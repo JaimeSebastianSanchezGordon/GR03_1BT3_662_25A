@@ -28,7 +28,7 @@
         <mapping class="com.barrial.Entity.Emprendimiento"/>
         <mapping class="com.barrial.Entity.Evento"/>
         <mapping class="com.barrial.Entity.Recurso"/>
-        <mapping class="com.barrial.Entity.Seguridad"/>
+        <mapping class="com.barrial.Entity.Problema"/>
 
     </session-factory>
 </hibernate-configuration>

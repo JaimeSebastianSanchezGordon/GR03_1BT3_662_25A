@@ -1,38 +1,39 @@
 package com.barrial.DAO;
 
 import com.barrial.Entity.Emprendimiento;
+import com.barrial.Entity.Evento;
 import com.barrial.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class EmprendimientoDAO {
-    public static List<Emprendimiento> obtenerDatos() {
+public class EventoDAO {
+    public static List<Evento> obtenerDatos() {
         Session session = Hibernate.getSessionFactory().openSession();
-        return session.createQuery("from Emprendimiento", Emprendimiento.class).list();
+        return session.createQuery("from Evento", Evento.class).list();
     }
 
-    public static void guardarEnBase(Emprendimiento emprendimiento) {
+    public static void guardarEnBase(Evento evento) {
         Session session = Hibernate.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.persist(emprendimiento);
+        session.persist(evento);
         transaction.commit();
         session.close();
     }
 
-    public static void eliminarEmprendimiento(Emprendimiento emprendimiento) {
+    public static void eliminarEvento(Evento evento) {
         Session session = Hibernate.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.remove(emprendimiento);
+        session.remove(evento);
         transaction.commit();
         session.close();
     }
 
-    public static void editarEmprendimiento(Emprendimiento emprendimiento) {
+    public static void editarEvento(Evento evento) {
         Session session = Hibernate.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.merge(emprendimiento);
+        session.merge(evento);
         transaction.commit();
         session.close();
     }
