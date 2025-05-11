@@ -28,6 +28,13 @@ public class EmprendimientoService {
         return emprendimientosDTO;
     }
 
+
+   /* private static List<EmprendimientoDTO> EntityaDTO(List<Emprendimiento> emprendimientos) {
+        return emprendimientos.stream()
+                .map(e -> new EmprendimientoDTO(e.getNombre(), e.getDescripcion()))
+                .collect(Collectors.toList());
+    }*/
+
     public static void guardarEnBase(EmprendimientoDTO emprendimientoDTO) {
         EmprendimientoDAO.guardarEnBase(DTOaEntity(emprendimientoDTO));
     }

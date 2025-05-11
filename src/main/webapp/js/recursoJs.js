@@ -1,4 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // MODAL DE EDITAR RECURSO
+    const botonesEditar = document.querySelectorAll(".btnEditarRecurso");
+    const modalEditar = document.getElementById("modalEditarRecurso");
+
+    botonesEditar.forEach(boton => {
+        boton.addEventListener("click", () => {
+            // Extraer valores desde atributos data
+            const id = boton.dataset.id;
+            const tipoRecurso = boton.dataset.tiporecurso;
+            const nombreRecurso = boton.dataset.nombrerecurso;
+            const cantidadRecurso = boton.dataset.cantidadrecurso;
+            const imagen = boton.dataset.imagen;
+
+            // Asignar los valores a los inputs del modal
+            document.getElementById("id").value = id;
+            document.getElementById("tipoRecurso").value = tipoRecurso;
+            document.getElementById("nombreRecurso").value = nombreRecurso;
+            document.getElementById("cantidadRecurso").value = cantidadRecurso;
+            document.getElementById("imagen").value = imagen;
+
+            // Mostrar el modal
+            modalEditar.classList.add("show");
+        });
+    });
+    // Cerrar el modal al hacer clic en el botón de cerrar
+
+
     // Animación de aparición para los recursos
     const recursos = document.querySelectorAll('.recurso');
 

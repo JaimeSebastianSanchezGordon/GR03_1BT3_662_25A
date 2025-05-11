@@ -16,8 +16,17 @@ public class Recurso {
     @Basic
     @Column(name = "cantidad")
     private int cantidad;
+    @Basic
+    @Column(name = "imagen")
+    private String imagen;
 
     public Recurso() {
+    }
+    public Recurso(String tipoRecurso, String nombreRecurso, int cantidadRecurso, String imagen) {
+        this.tipo = tipoRecurso;
+        this.nombre = nombreRecurso;
+        this.cantidad = cantidadRecurso;
+        this.imagen = imagen;
     }
 
     public int getId() {
@@ -50,6 +59,13 @@ public class Recurso {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     @Override

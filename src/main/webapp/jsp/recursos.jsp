@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.barrial.Entity.Recurso" %>
+<%@ page import="com.barrial.DTO.RecursoDTO" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -11,27 +11,43 @@
 
     <div class="recursos">
         <%
-            List<Recurso> recursos = (List<Recurso>) request.getAttribute("recursos");
-            if (recursos != null && !recursos.isEmpty()){
-                for (Recurso recurso: recursos){
+            List<RecursoDTO> recursosDTO = (List<RecursoDTO>) request.getAttribute("recursos");
+            if (recursosDTO != null && !recursosDTO.isEmpty()){
+                for (RecursoDTO recursoDTO: recursosDTO){
         %>
         <div class="recurso">
             <div class="tipoRecurso">
-                <h3><%=recurso.getTipo()%></h3>
+                <h3><%=recursoDTO.getTipoRecurso()%></h3>
             </div>
             <div class="ejemploRecurso">
-                <h3><%=recurso.getNombre()%></h3>
+                <h3><%=recursoDTO.getNombreRecurso()%></h3>
             </div>
             <div class="cantidadRecurso">
                 <div>
                     <h3>Cantidad:</h3>
                 </div>
                 <div>
-                    <h3><%=recurso.getCantidad()%></h3>
+                    <h3><%=recursoDTO.getCantidadRecurso()%></h3>
                 </div>
             </div>
             <div class="imagenRecurso">
-                <h2>IMAGEN</h2>
+                <img width="100%" src="<%=recursoDTO.getImagen()%>" alt="ERROR AL CARGAR LA IMAGEN">
+            </div>
+            <div class="botonesRecurso">
+                <div>
+                    <button class="btnEditarRecurso"
+                            data-id="<%=recursoDTO.getId()%>"
+                            data-tipoRecurso="<%=recursoDTO.getTipoRecurso()%>"
+                            data-nombreRecurso="<%=recursoDTO.getNombreRecurso()%>"
+                            data-cantidadRecurso="<%=recursoDTO.getCantidadRecurso()%>"
+                            data-imagen="<%=recursoDTO.getImagen()%>"> EDITAR</button>
+                </div>
+                <div>
+                    <form action="mostrarRecursos" method="POST">
+                        <input type="hidden" name="id" value="<%=recursoDTO.getId()%>">
+                        <button name="accion" value="eliminar"> ELIMINAR</button>
+                    </form>
+                </div>
             </div>
         </div>
         <%
@@ -46,9 +62,7 @@
         %>
     </div>
 
-    <div class="emprendimientos">
-    </div>
-
+    <%--    MODAL PARA REGISTRO--%>
     <div class="registroRecurso" id="registroRecurso">
         <div class="tituloRegistro">
             <h3>Registrar recurso</h3>
@@ -60,13 +74,35 @@
                 Nombre recurso: <br>
                 <input type="text" name="nombreRecurso"><br>
                 Cantidad recurso: <br>
-                <input type="text" name="cantidadRecurso"><br>
+                <input type="number" name="cantidadRecurso" step="1" min="1" required><br>
                 Imagen:<br>
                 <input type="text" name="imagen"><br>
-                <button type="submit">Registrar recurso</button>
+                <button type="submit" name="accion" value="crear">Registrar recurso</button>
             </form>
         </div>
     </div>
+
+    <%--    MODAL PARA EDITAR--%>
+    <div class="editarRecurso" id="modalEditarRecurso">
+        <div class="tituloRegistro">
+            <h3>Editar recurso</h3>
+        </div>
+        <div class="datosRegistro">
+            <form action="mostrarRecursos" method="POST">
+                <input type="hidden" name="id" id="id">
+                Tipo recurso: <br>
+                <input type="text" name="tipoRecurso" id="tipoRecurso"><br>
+                Nombre recurso: <br>
+                <input type="text" name="nombreRecurso" id="nombreRecurso"><br>
+                Cantidad recurso: <br>
+                <input type="number" name="cantidadRecurso" id="cantidadRecurso" step="1" min="1" required><br>
+                Imagen:<br>
+                <input type="text" name="imagen" id="imagen"><br>
+                <button type="submit" name="accion" value="editar" >Actualizar recurso</button>
+            </form>
+        </div>
+    </div>
+
 </c:set>
 
 <jsp:include page="/jsp/baseM.jsp">
