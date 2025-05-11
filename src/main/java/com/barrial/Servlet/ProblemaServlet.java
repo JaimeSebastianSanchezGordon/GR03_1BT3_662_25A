@@ -1,22 +1,22 @@
 package com.barrial.Servlet;
 
-import com.barrial.DTO.SeguridadDTO;
-import com.barrial.Service.SeguridadService;
+import com.barrial.DTO.ProblemaDTO;
+import com.barrial.Service.ProblemaService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@WebServlet("/mostrarSeguridad")
-public class SeguridadServlet extends HttpServlet {
+@WebServlet("/mostrarProblema")
+public class ProblemaServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.setAttribute("seguridades", SeguridadService.obtenerDatos());
-        request.getRequestDispatcher("jsp/seguridad.jsp").forward(request, response);
+        request.setAttribute("problemas", ProblemaService.obtenerDatos());
+        request.getRequestDispatcher("jsp/problema.jsp").forward(request, response);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class SeguridadServlet extends HttpServlet {
         int idSeguridad = Integer.parseInt(request.getParameter("id"));
         System.out.println("SE VA A ELIMINAR LA SUGERENCIA DE SEGURIDAD CON ID: " + idSeguridad);
 
-        SeguridadService.eliminarSeguridad(idSeguridad);
+        ProblemaService.eliminarSeguridad(idSeguridad);
 
         response.sendRedirect("mostrarSeguridad");
     }
@@ -51,14 +51,14 @@ public class SeguridadServlet extends HttpServlet {
 
         System.out.println("SE VA A REGISTRAR UNA NUEVA SUGERENCIA DE SEGURIDAD");
 
-        SeguridadDTO seguridadDTO = new SeguridadDTO(
+        ProblemaDTO problemaDTO = new ProblemaDTO(
                 request.getParameter("nombre"),
                 request.getParameter("descripcion"),
                 0,  // numVotos por defecto
                 request.getParameter("imagen")
         );
 
-        SeguridadService.guardarEnBase(seguridadDTO);
+        ProblemaService.guardarEnBase(problemaDTO);
 
         response.sendRedirect("mostrarSeguridad");
     }

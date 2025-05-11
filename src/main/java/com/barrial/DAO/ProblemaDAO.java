@@ -1,30 +1,30 @@
 package com.barrial.DAO;
 
-import com.barrial.Entity.Seguridad;
+import com.barrial.Entity.Problema;
 import com.barrial.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class SeguridadDAO {
-    public static List<Seguridad> obtenerDatos() {
+public class ProblemaDAO {
+    public static List<Problema> obtenerDatos() {
         Session session = Hibernate.getSessionFactory().openSession();
-        return session.createQuery("from Seguridad ", Seguridad.class).list();
+        return session.createQuery("from Problema ", Problema.class).list();
     }
 
-    public static void guardarEnBase(Seguridad seguridad) {
+    public static void guardarEnBase(Problema problema) {
         Session session = Hibernate.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.persist(seguridad);
+        session.persist(problema);
         transaction.commit();
         session.close();
     }
 
-    public static void eliminarSeguridad(Seguridad seguridad) {
+    public static void eliminarSeguridad(Problema problema) {
         Session session = Hibernate.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.remove(seguridad);
+        session.remove(problema);
         transaction.commit();
         session.close();
     }

@@ -1,40 +1,19 @@
-package com.barrial.Entity;
+package com.barrial.DTO;
 
-import com.barrial.DAO.SeguridadDAO;
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "Seguridad")
-public class Seguridad {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+public class ProblemaDTO {
     private int id;
-
-    @Basic
-    @Column(name = "nombre")
     private String nombre;
-    @Basic
-    @Column(name = "descripcion")
     private String descripcion;
-    @Basic
-    @Column(name = "numVotos")
     private int numVotos;
-
-    @Basic
-    @Column(name = "imagen")
     private String imagen;
 
-    public Seguridad(String nombre, String descripcion,int numVotos, String imagen) {
+    public ProblemaDTO(String nombre, String descripcion, int numVotos, String imagen) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.numVotos = numVotos;
         this.imagen = imagen;
     }
 
-    public Seguridad() {
-        this.numVotos = 0;
-    }
 
     public int getId() {
         return id;
@@ -79,7 +58,7 @@ public class Seguridad {
     @Override
     public String toString() {
         return "SeguridadDTO{" +
-                "id=" + id + '\'' +
+                "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", numVotos=" + numVotos + '\'' +

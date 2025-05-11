@@ -35,7 +35,7 @@
             <div class="tarjeta-caracteristica">
                 <div class="icono-caracteristica">🛡️</div>
                 <h3>Seguridad</h3>
-                <p>Reporta y recibe alertas sobre situaciones de seguridad.</p>
+                <p>Reporta y recibe alertas sobre situaciones de problema.</p>
             </div>
         </div>
     </div>
