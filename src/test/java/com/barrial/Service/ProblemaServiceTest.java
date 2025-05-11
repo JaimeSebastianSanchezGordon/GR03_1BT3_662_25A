@@ -1,12 +1,16 @@
 package com.barrial.Service;
 
+import com.barrial.DAO.ProblemaDAO;
+import com.barrial.Entity.Problema;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.mock;
 
 import com.barrial.DTO.ProblemaDTO;
 import com.barrial.Validation.ValidateProblema;
-import org.junit.*;
 
 public class ProblemaServiceTest {
 
@@ -47,6 +51,22 @@ public class ProblemaServiceTest {
     public void given_when_then2(){
 
 
+    }
+
+    //Prueba Unitaria Mockito 2: Simular error en base de datos al actualizar votos.
+    @Test
+    public void given_update_on_BD_when_wrong_data_then_exception(){
+        Problema problema = new Problema(
+                1, "NuevoProblema", "Problema descripción", 3, "http//imagen"
+        );
+        ProblemaDAO mockDAO = mock(ProblemaDAO.class);
+        doThrow(new RuntimeException("DB error")).when(mockDAO).editarSeguridad(any(Problema.class));
+
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            mockDAO.editarSeguridad(problema);
+        });
+
+        assertEquals("DB error", exception.getMessage());
     }
 
 }
