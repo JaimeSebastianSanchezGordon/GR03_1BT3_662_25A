@@ -8,8 +8,8 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
         <property name="hibernate.connection.url">
-            jdbc:sqlserver://GWNR71517\MSSQLSERVERENTER;database=AppWebBarrio;encrypt=true;trustServerCertificate=true
-<!--                jdbc:sqlserver://localhost:1433;databaseName=AppWeb;encrypt=true;trustServerCertificate=true-->
+<!--            jdbc:sqlserver://GWNR71517\MSSQLSERVERENTER;database=AppWebBarrio;encrypt=true;trustServerCertificate=true-->
+                jdbc:sqlserver://localhost:1433;databaseName=AppWeb;encrypt=true;trustServerCertificate=true
         </property>
 
         <property name="hibernate.connection.username">sa</property>
@@ -21,7 +21,7 @@
         <mapping class="com.barrial.Entity.Emprendimiento"/>
         <mapping class="com.barrial.Entity.Evento"/>
         <mapping class="com.barrial.Entity.Recurso"/>
-        <mapping class="com.barrial.Entity.Seguridad"/>
+        <mapping class="com.barrial.Entity.Problema"/>
 
     </session-factory>
 </hibernate-configuration>

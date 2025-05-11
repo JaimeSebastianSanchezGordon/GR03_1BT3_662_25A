@@ -31,7 +31,7 @@
       <a href="<%= request.getContextPath() %>/mostrarEmprendimientos">EMPRENDIMIENTOS</a>
       <a href="<%= request.getContextPath() %>/mostrarEventos">EVENTOS</a>
       <a href="<%= request.getContextPath() %>/mostrarRecursos">RECOLECCION RECURSOS</a>
-      <a href="<%= request.getContextPath() %>/mostrarSeguridad">SEGURIDAD</a>
+      <a href="<%= request.getContextPath() %>/mostrarProblema">PROBLEMAS</a>
     </nav>
   </aside>
 

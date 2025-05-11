@@ -42,6 +42,7 @@ public class EmprendimientoServlet extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String descripcion = request.getParameter("descripcion");
         String imagen = request.getParameter("imagen");
+
         System.out.println("EL ID DEL EMPRENDIMIETNO ES: " + idEmprendimiento);
 
         EmprendimientoService.editarEmprendimiento(idEmprendimiento, nombre, descripcion, imagen);
