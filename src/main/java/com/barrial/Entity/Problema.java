@@ -29,6 +29,14 @@ public class Problema {
         this.imagen = imagen;
     }
 
+    public Problema(int id, String nombre, String descripcion, int numVotos, String imagen) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.numVotos = numVotos;
+        this.imagen = imagen;
+    }
+
     public Problema() {
         this.numVotos = 0;
     }
