@@ -1,6 +1,5 @@
 package com.barrial.DAO;
 
-import com.barrial.Entity.Evento;
 import com.barrial.Entity.Problema;
 import com.barrial.Hibernate;
 import org.hibernate.Session;
@@ -14,7 +13,7 @@ public class ProblemaDAO {
         return session.createQuery("from Problema ", Problema.class).list();
     }
 
-    public static void guardarEnBase(Problema problema) {
+    public void guardarEnBase(Problema problema) {
         Session session = Hibernate.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         session.persist(problema);
@@ -29,12 +28,5 @@ public class ProblemaDAO {
         transaction.commit();
         session.close();
     }
-
-    public void editarSeguridad(Problema problema) {
-        Session session = Hibernate.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        session.merge(problema);
-        transaction.commit();
-        session.close();
-    }
 }
+

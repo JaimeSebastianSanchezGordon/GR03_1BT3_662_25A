@@ -1,6 +1,5 @@
 package com.barrial.Service;
 
-import com.barrial.DAO.IProblemaDAO;
 import com.barrial.DTO.ProblemaDTO;
 import com.barrial.Entity.Problema;
 import com.barrial.DAO.ProblemaDAO;
@@ -9,25 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProblemaService {
-
-    private IProblemaDAO problemaDAO;
-
-    public ProblemaService(IProblemaDAO problemaDAO) {
-        this.problemaDAO = problemaDAO;
-    }
-
-    public Problema buscarProblema(int id) {
-        return problemaDAO.buscarProblema(id);
-    }
-
-    public List<Problema> obtenerProblemas() {
-        return problemaDAO.obtenerProblemas();
-    }
-
-    public void registrarProblema(Problema problema) {
-        problemaDAO.guardar(problema);
-    }
-
 
     public static List<ProblemaDTO> obtenerDatos() {
         return EntityaDTO(ProblemaDAO.obtenerDatos());

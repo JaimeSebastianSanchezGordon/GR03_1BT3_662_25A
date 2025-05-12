@@ -11,6 +11,8 @@ import java.io.IOException;
 @WebServlet("/mostrarProblema")
 public class ProblemaServlet extends HttpServlet {
 
+    private ProblemaService problemaService;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -48,18 +50,15 @@ public class ProblemaServlet extends HttpServlet {
 
     private void crearSeguridad(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-
         System.out.println("SE VA A REGISTRAR UNA NUEVA SUGERENCIA DE SEGURIDAD");
-
         ProblemaDTO problemaDTO = new ProblemaDTO(
                 request.getParameter("nombre"),
                 request.getParameter("descripcion"),
-                0,  // numVotos por defecto
+                0,
                 request.getParameter("imagen")
         );
-
-        ProblemaService.guardarEnBase(problemaDTO);
-
-        response.sendRedirect("mostrarSeguridad");
+        problemaService.guardarEnBase(problemaDTO);
+        response.sendRedirect("mostrarProblema");
     }
 }
+
