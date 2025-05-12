@@ -1,18 +1,83 @@
 package com.barrial.Service;
 
+import com.barrial.DAO.IProblemaDAO;
 import com.barrial.DAO.ProblemaDAO;
 import com.barrial.Entity.Problema;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 import com.barrial.DTO.ProblemaDTO;
 import com.barrial.Validation.ValidateProblema;
+import org.mockito.Mockito;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProblemaServiceTest {
+
+
+    class TestProblemaDAO implements IProblemaDAO {
+        @Override
+        public List<Problema> obtenerProblemas() {
+            List<Problema> lista = new ArrayList<>();
+            lista.add(new Problema("Inseguridad", "Robo en calles", 0, "imagen"));
+            lista.add(new Problema("Basura", "Acumulación en calles", 0, "imagen"));
+            lista.add(new Problema("Ruido", "Molestias por volumen", 0, "imagen"));
+            return lista;
+        }
+
+        @Override
+        public void guardar(Problema problema) {
+
+        }
+
+        @Override
+        public Problema buscarProblema(int id) {
+            return new Problema("Inseguridad",
+                    "Robo en calles",
+                    0,
+                    "imagen");
+        }
+    }
+
+    ProblemaService problemaService = null;
+
+    @Before
+    public void setUp() {
+        // Configuración común antes de cada prueba
+        problemaService = new ProblemaService(new TestProblemaDAO());
+    }
+
+    @Test (timeout = 100)
+    public void given_problema_id_when_busca_then_existe_problema() {
+        Problema problemaActual = problemaService.buscarProblema(1);
+        assertEquals("Inseguridad", problemaActual.getNombre());
+    }
+
+    @Test (timeout = 100)
+    public void given_datos_when_obtener_problemas_then_size_correcto() {
+        List<Problema> totalProblemasActuales = problemaService.obtenerProblemas();
+        assertEquals(3, totalProblemasActuales.size());
+    }
+
+    @Test
+    public void given_problema_when_registra_then_dao_guarda_invocado() {
+        // Arrange
+        IProblemaDAO iProblemaDAO = Mockito.mock(IProblemaDAO.class);
+        ProblemaService problemaService = new ProblemaService(iProblemaDAO);
+        Problema problema = new Problema("Inseguridad",
+                "Robo en calles",
+                0,
+                "imagen");
+
+        problemaService.registrarProblema(problema);
+
+        verify(iProblemaDAO, times(1)).guardar(problema);
+    }
 
     //Prueba Unitaria 1: Crear problemabarial con datos válidos.
     @Test
@@ -41,17 +106,7 @@ public class ProblemaServiceTest {
         System.out.println("Hecho");
     }
 
-    @Test
-    public void given_when_then(){
 
-
-    }
-
-    @Test
-    public void given_when_then2(){
-
-
-    }
 
     //Prueba Unitaria Mockito 2: Simular error en base de datos al actualizar votos.
     @Test
