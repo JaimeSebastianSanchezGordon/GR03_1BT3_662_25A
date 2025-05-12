@@ -47,11 +47,11 @@ public class ProblemaServiceTest {
 
     ProblemaService problemaService = null;
 
-    @Before
-    public void setUp() {
-        // Configuración común antes de cada prueba
-        problemaService = new ProblemaService(new TestProblemaDAO());
-    }
+//    @Before
+//    public void setUp() {
+//        // Configuración común antes de cada prueba
+//        problemaService = new ProblemaService(new TestProblemaDAO());
+//    }
 
     @Test (timeout = 100)
     public void given_problema_id_when_busca_then_existe_problema() {
@@ -119,7 +119,7 @@ public class ProblemaServiceTest {
         //Se mockea al DAO
         ProblemaDAO mockDAO = mock(ProblemaDAO.class);
         //Simulación de excepción del método editarSeguridad
-        doThrow(new RuntimeException("DB Error")).when(mockDAO).editarSeguridad(any(Problema.class));
+        doThrow(new RuntimeException("DB error")).when(mockDAO).editarSeguridad(any(Problema.class));
 
         //Verificar que se lanza la excepción esperada
         Exception exception = assertThrows(RuntimeException.class, () -> {

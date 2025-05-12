@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class ProblemaDAO {
     public static List<Problema> obtenerDatos() {
@@ -14,27 +15,33 @@ public class ProblemaDAO {
         return session.createQuery("from Problema ", Problema.class).list();
     }
 
-    public void guardarEnBase(Problema problema) {
+    private void ejecutarTransaccion(Consumer<Session> operacion) {
         Session session = Hibernate.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        session.persist(problema);
-        transaction.commit();
-        session.close();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            operacion.accept(session);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
+
+    public void guardarEnBase(Problema problema) {
+        ejecutarTransaccion(session -> session.persist(problema));
     }
 
     public static void eliminarSeguridad(Problema problema) {
-        Session session = Hibernate.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        session.remove(problema);
-        transaction.commit();
-        session.close();
+        new ProblemaDAO().ejecutarTransaccion(session -> session.remove(problema)); // si eliminar es static, se necesita crear instancia
     }
 
     public void editarSeguridad(Problema problema) {
-        Session session = Hibernate.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        session.merge(problema);
-        transaction.commit();
-        session.close();
+        ejecutarTransaccion(session -> session.merge(problema));
     }
+
+
+
 }
