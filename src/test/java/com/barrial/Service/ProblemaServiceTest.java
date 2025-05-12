@@ -53,6 +53,17 @@ public class ProblemaServiceTest {
 
     }
 
+
+    //Prueba unitaria 7: Eliminar problemabarial en BD.
+    @Test
+    public void given__when__then7(){
+    }
+
+    //Prueba unitaria 8: Editar campos de problemabarial en BD.
+    @Test
+    public void given_when_then8(){
+    }
+
     //Prueba Unitaria Mockito 2: Simular error en base de datos al actualizar votos.
     @Test
     public void given_update_on_BD_when_wrong_data_then_exception(){
