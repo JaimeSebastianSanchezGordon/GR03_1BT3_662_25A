@@ -1,18 +1,52 @@
 package com.barrial.Service;
 
+import com.barrial.DTO.ProblemaDTO;
 import com.barrial.DAO.ProblemaDAO;
 import com.barrial.Entity.Problema;
 import org.junit.Test;
-
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 import com.barrial.DTO.ProblemaDTO;
 import com.barrial.Validation.ValidateProblema;
-
+@RunWith(MockitoJUnitRunner.class)
 public class ProblemaServiceTest {
+    @Mock
+    private ProblemaDAO problemaDAO;
+
+    @InjectMocks
+    private ProblemaService problemaService;
+    @Test (expected = IllegalArgumentException.class)
+    public void given_null_name_when_insert_BD_then_exception() {
+        ProblemaDTO problemaDTO = new ProblemaDTO(
+                null,
+                "Descripción de prueba",
+                0,
+                "imagen.jpg"
+        );
+        problemaService.guardarEnBase(problemaDTO);
+    }
+
+    @Test
+    public void given_negative_votes_when_create_problem_then_DefaultToZero() {
+        ProblemaDTO problemaDTO = new ProblemaDTO(
+                "Nombre de prueba",
+                "Descripción de prueba",
+                -1,
+                "imagen.jpg"
+        );
+
+        problemaService.guardarEnBase(problemaDTO);
+
+        assertEquals(0, problemaDTO.getNumVotos());
+        verify(problemaDAO, times(1)).guardarEnBase(any(Problema.class));
+    }
 
     //Prueba Unitaria 1: Crear problemabarial con datos válidos.
     @Test
