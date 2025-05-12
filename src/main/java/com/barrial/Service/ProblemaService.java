@@ -8,10 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProblemaService {
-    private final ProblemaDAO problemaDAO;
-    public ProblemaService(ProblemaDAO problemaDAO) {
-        this.problemaDAO = problemaDAO;
-    }
+
     public static List<ProblemaDTO> obtenerDatos() {
         return EntityaDTO(ProblemaDAO.obtenerDatos());
     }
@@ -30,18 +27,10 @@ public class ProblemaService {
         return problemaDTOS;
     }
 
-    public void guardarEnBase(ProblemaDTO problemaDTO) {
-        if (problemaDTO.getNombre() == null || problemaDTO.getNombre().trim().isEmpty()) {
-            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío");
-        }
-        if (problemaDTO.getDescripcion() == null || problemaDTO.getDescripcion().trim().isEmpty()) {
-            throw new IllegalArgumentException("La descripción no puede ser nula o vacía");
-        }
-        if (problemaDTO.getNumVotos() < 0){
-            problemaDTO.setNumVotos(0);
-        }
-        problemaDAO.guardarEnBase(DTOaEntity(problemaDTO));
+    public static void guardarEnBase(ProblemaDTO problemaDTO) {
+        ProblemaDAO.guardarEnBase(DTOaEntity(problemaDTO));
     }
+
     public static Problema DTOaEntity(ProblemaDTO problemaDTO) {
         Problema problema = new Problema();
         problema.setNombre(problemaDTO.getNombre());

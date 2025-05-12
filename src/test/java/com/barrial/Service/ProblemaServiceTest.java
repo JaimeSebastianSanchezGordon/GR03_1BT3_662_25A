@@ -1,51 +1,82 @@
 package com.barrial.Service;
 
-import com.barrial.DTO.ProblemaDTO;
+import com.barrial.DAO.IProblemaDAO;
 import com.barrial.DAO.ProblemaDAO;
 import com.barrial.Entity.Problema;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.*;
 
 import com.barrial.DTO.ProblemaDTO;
 import com.barrial.Validation.ValidateProblema;
-@RunWith(MockitoJUnitRunner.class)
-public class ProblemaServiceTest {
-    @Mock
-    private ProblemaDAO problemaDAO;
+import org.mockito.Mockito;
 
-    @InjectMocks
-    private ProblemaService problemaService;
-    @Test (expected = IllegalArgumentException.class)
-    public void given_null_name_when_insert_BD_then_exception() {
-        ProblemaDTO problemaDTO = new ProblemaDTO(
-                null,
-                "Descripción de prueba",
-                0,
-                "imagen.jpg"
-        );
-        problemaService.guardarEnBase(problemaDTO);
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProblemaServiceTest {
+
+
+    class TestProblemaDAO implements IProblemaDAO {
+        @Override
+        public List<Problema> obtenerProblemas() {
+            List<Problema> lista = new ArrayList<>();
+            lista.add(new Problema("Inseguridad", "Robo en calles", 0, "imagen"));
+            lista.add(new Problema("Basura", "Acumulación en calles", 0, "imagen"));
+            lista.add(new Problema("Ruido", "Molestias por volumen", 0, "imagen"));
+            return lista;
+        }
+
+        @Override
+        public void guardar(Problema problema) {
+
+        }
+
+        @Override
+        public Problema buscarProblema(int id) {
+            return new Problema("Inseguridad",
+                    "Robo en calles",
+                    0,
+                    "imagen");
+        }
+    }
+
+    ProblemaService problemaService = null;
+
+    @Before
+    public void setUp() {
+        // Configuración común antes de cada prueba
+        problemaService = new ProblemaService(new TestProblemaDAO());
+    }
+
+    @Test (timeout = 100)
+    public void given_problema_id_when_busca_then_existe_problema() {
+        Problema problemaActual = problemaService.buscarProblema(1);
+        assertEquals("Inseguridad", problemaActual.getNombre());
+    }
+
+    @Test (timeout = 100)
+    public void given_datos_when_obtener_problemas_then_size_correcto() {
+        List<Problema> totalProblemasActuales = problemaService.obtenerProblemas();
+        assertEquals(3, totalProblemasActuales.size());
     }
 
     @Test
-    public void given_negative_votes_when_create_problem_then_DefaultToZero() {
-        ProblemaDTO problemaDTO = new ProblemaDTO(
-                "Nombre de prueba",
-                "Descripción de prueba",
-                -1,
-                "imagen.jpg"
-        );
+    public void given_problema_when_registra_then_dao_guarda_invocado() {
+        // Arrange
+        IProblemaDAO iProblemaDAO = Mockito.mock(IProblemaDAO.class);
+        ProblemaService problemaService = new ProblemaService(iProblemaDAO);
+        Problema problema = new Problema("Inseguridad",
+                "Robo en calles",
+                0,
+                "imagen");
 
-        problemaService.guardarEnBase(problemaDTO);
+        problemaService.registrarProblema(problema);
 
-        assertEquals(0, problemaDTO.getNumVotos());
-        verify(problemaDAO, times(1)).guardarEnBase(any(Problema.class));
+        verify(iProblemaDAO, times(1)).guardar(problema);
     }
 
     //Prueba Unitaria 1: Crear problemabarial con datos válidos.
@@ -75,30 +106,7 @@ public class ProblemaServiceTest {
         System.out.println("Hecho");
     }
 
-    @Test
-    public void given_when_then(){
 
-
-    }
-
-    @Test
-    public void given_when_then2(){
-
-
-    }
-
-
-    //Prueba unitaria 7: Eliminar problemabarial en BD.
-    @Test
-    public void given_idProblem_when_deleteProblem_then_ok(){
-
-    }
-
-    //Prueba unitaria 8: Editar campos de problemabarial en BD.
-    @Test
-    public void given_idProblem_when_modifyProblem_then_ok(){
-        
-    }
 
     //Prueba Unitaria Mockito 2: Simular error en base de datos al actualizar votos.
     @Test
