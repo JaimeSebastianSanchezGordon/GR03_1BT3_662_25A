@@ -12,42 +12,42 @@
 <c:set var="seguridadContent">
     <div class="encabezadoEmprendimiento">
         <h2>PROBLEMAS</h2>
-        <button type="submit" class="botonRegistroSeguridad">Agregar problema</button>
+        <button type="submit" class="botonRegistroProblema">Agregar problema</button>
     </div>
 
     <div class="seguridades">
         <%
-            List<ProblemaDTO> seguridadeDTO = (List<ProblemaDTO>) request.getAttribute("problemas");
-            if (seguridadeDTO != null && !seguridadeDTO.isEmpty()){
-                for (ProblemaDTO problema: seguridadeDTO) {
+            List<ProblemaDTO> problemasDTO = (List<ProblemaDTO>) request.getAttribute("problemas");
+            if (problemasDTO != null && !problemasDTO.isEmpty()){
+                for (ProblemaDTO problema: problemasDTO) {
         %>
         <div class="problema">
-            <div class="imagenSeguridad">
+            <div class="imagenProblema">
                 <img width="100%" src="<%=problema.getImagen()%>" alt="Imagen de problema">
             </div>
-            <div class="contenidoSeguridad">
-                <div class="tituloSeguridad">
+            <div class="contenidoProblema">
+                <div class="tituloProblema">
                     <h3><%=problema.getNombre()%></h3>
                 </div>
-                <div class="contenidoSeguridad">
+                <div class="contenidoProblema">
                     <p><%=problema.getDescripcion()%></p>
                 </div>
                 <div>
-                    <form action="mostrarSeguridad" method="POST">
+                    <form action="mostrarProblema" method="POST">
                         <input type="hidden" name="id" value="<%=problema.getId()%>">
-                        <button name="accion" value="votar" class="botonVotarSeguridad">VOTAR</button>
+                        <button name="accion" value="votar" class="botonVotarProblema">VOTAR</button>
                     </form>
                 </div>
                 <div>
-                    <form action="mostrarSeguridad" method="POST">
+                    <form action="mostrarProblema" method="POST">
                         <input type="hidden" name="id" value="<%=problema.getId()%>">
-                        <button name="accion" value="editar" class="botonVotarSeguridad"> EDITAR</button>
+                        <button name="accion" value="editar" class="botonVotarProblema"> EDITAR</button>
                         <input type="hidden" name="id" value="<%=problema.getId()%>">
-                        <button name="accion" value="eliminar" class="botonVotarSeguridad">ELIMINAR</button>
+                        <button name="accion" value="eliminar" class="botonVotarProblema">ELIMINAR</button>
                     </form>
                 </div>
             </div>
-            <div class="votosSeguridad">
+            <div class="votosProblema">
                 <div>
                     <h3>Número de votaciones:</h3>
                 </div>
@@ -60,7 +60,7 @@
             }
         } else {
         %>
-        <div class="noHaySeguridad">
+        <div class="noHayProblema">
             <h2>NO HAY SEGURIDADES</h2>
         </div>
         <%
@@ -68,14 +68,14 @@
         %>
     </div>
 
-    <div class="registroSeguridad" id="registroSeguridad">
-        <div class="tipoSeguridad">
+    <div class="registroProblema" id="registroProblema">
+        <div class="tipoProblema">
             <div class="tituloRegistro">
                 <h3>Registrar problema</h3>
             </div>
         </div>
         <div class="datosRegistro">
-            <form action="mostrarSeguridad" method="POST">
+            <form action="mostrarProblema" method="POST">
                 Nombre: <br>
                 <input type="text" name="nombre"><br>
                 Descripción: <br>
@@ -89,8 +89,8 @@
 </c:set>
 
 <jsp:include page="/jsp/baseM.jsp">
-    <jsp:param name="title" value="MiBarrioApp-Seguridad"/>
+    <jsp:param name="title" value="MiBarrioApp-Problema"/>
     <jsp:param name="contentPage" value="${seguridadContent}"/>
     <jsp:param name="extra_js" value="${pageContext.request.contextPath}/js/problemaJs.js"/>
-    <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/styleSeguridad.css"/>
+    <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/styleProblema.css"/>
 </jsp:include>
