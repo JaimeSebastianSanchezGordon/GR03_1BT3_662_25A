@@ -1,4 +1,4 @@
-FROM tomcat:10-jre17
+FROM tomcat:10-jre11
 # Eliminar aplicaciones predeterminadas de Tomcat
 RUN rm -rf /usr/local/tomcat/webapps/*
 # Crear directorio para datos persistentes
