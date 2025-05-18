@@ -9,4 +9,6 @@ public interface IProblemaDAO {
 
     Problema buscarProblema(int id);
     List<Problema> obtenerProblemas();
+    void eliminarProblema(Problema problema);
+    void actualizarProblema(Problema problema);
 }

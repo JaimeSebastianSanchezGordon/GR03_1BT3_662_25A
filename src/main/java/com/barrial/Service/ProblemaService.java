@@ -1,5 +1,7 @@
 package com.barrial.Service;
 
+import com.barrial.DAO.IProblemaDAO;
+import com.barrial.DAO.RecursoDAO;
 import com.barrial.DTO.ProblemaDTO;
 import com.barrial.Entity.Problema;
 import com.barrial.DAO.ProblemaDAO;
@@ -8,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProblemaService {
+
 
     public static List<ProblemaDTO> obtenerDatos() {
         return EntityaDTO(ProblemaDAO.obtenerDatos());
@@ -51,5 +54,19 @@ public class ProblemaService {
             }
         }
         return null;
+    }
+
+    private static IProblemaDAO problemaDAO;
+
+    // Este método se usa solo para pruebas (mockeo)
+    public static void setProblemaDAO(IProblemaDAO dao) {
+        problemaDAO = dao;
+    }
+
+    public static void eliminarProblema(int id) {
+        Problema problema = problemaDAO.buscarProblema(id);
+        if (problema != null) {
+            problemaDAO.eliminarProblema(problema);
+        }
     }
 }

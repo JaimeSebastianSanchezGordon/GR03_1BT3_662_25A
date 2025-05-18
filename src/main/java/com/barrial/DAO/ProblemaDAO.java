@@ -13,7 +13,7 @@ public class ProblemaDAO {
         return session.createQuery("from Problema ", Problema.class).list();
     }
 
-    public void guardarEnBase(Problema problema) {
+    public static void guardarEnBase(Problema problema) {
         Session session = Hibernate.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         session.persist(problema);
