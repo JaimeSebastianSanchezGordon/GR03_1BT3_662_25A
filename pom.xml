@@ -10,34 +10,30 @@
   <name>GR03_1BT3_662_25A Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
-  <!-- Aquí se define el JDK que se usará -->
   <properties>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
+    <!-- Configuración para JDK 17 -->
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <!-- Versiones de dependencias -->
+    <hibernate.version>6.4.4.Final</hibernate.version> <!-- Versión estable para Java 17 -->
+    <mssql-jdbc.version>12.6.1.jre11</mssql-jdbc.version>
+    <servlet-api.version>4.0.1</servlet-api.version> <!-- Mantenemos javax.servlet para Java 17 -->
+    <junit-jupiter.version>5.10.0</junit-jupiter.version>
+    <spring.version>5.3.30</spring.version> <!-- Versión compatible con Java 17 -->
   </properties>
 
   <dependencies>
-    <!-- HIBERNATE -->
+    <!-- HIBERNATE (versión estable para Java 17) -->
     <dependency>
       <groupId>org.hibernate.orm</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>6.4.6.Final</version>
+      <version>7.0.0.Beta3</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.xerial</groupId>
-      <artifactId>sqlite-jdbc</artifactId>
-      <version>3.42.0.0</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <version>2.2.224</version>
-    </dependency>
-
-
-    <!-- SQL -->
+    <!-- SQL Server JDBC -->
     <dependency>
       <groupId>com.microsoft.sqlserver</groupId>
       <artifactId>mssql-jdbc</artifactId>
@@ -45,25 +41,47 @@
       <scope>compile</scope>
     </dependency>
 
-    <!-- SERVLET -->
+    <!-- SERVLET API (javax para Java 17) -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
-      <version>4.0.1</version>
+      <version>${servlet-api.version}</version>
       <scope>provided</scope>
     </dependency>
 
+    <!-- JSTL -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
 
-    <!-- INCLUDE -->
+    <!-- Spring Context -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!-- EL (Expression Language) -->
     <dependency>
       <groupId>org.glassfish</groupId>
       <artifactId>jakarta.el</artifactId>
       <version>4.0.2</version>
     </dependency>
+
+    <!-- Testing -->
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>jstl</artifactId>
-      <version>1.2</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit-jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>5.10.0</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -71,30 +89,29 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>2.23.4</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.10.0</version>
-      <scope>test</scope>
-    </dependency>
-    <!-- Versión básica para Spring (si no usas Spring Boot) -->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>5.3.30</version> <!-- Usa la versión más reciente -->
-    </dependency>
-
   </dependencies>
 
   <build>
     <finalName>GR03_1BT3_662_25A</finalName>
+    <plugins>
+      <!-- Plugin de compilación -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+
+      <!-- Plugin para empaquetar como WAR -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.4.0</version>
+      </plugin>
+    </plugins>
   </build>
 </project>
