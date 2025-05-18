@@ -72,6 +72,12 @@
       <version>5.10.0</version>
       <scope>test</scope>
     </dependency>
+    <!-- Versión básica para Spring (si no usas Spring Boot) -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>5.3.30</version> <!-- Usa la versión más reciente -->
+    </dependency>
 
   </dependencies>
 

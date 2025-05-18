@@ -1,17 +1,19 @@
+
 package com.barrial.Service;
 
-import com.barrial.DAO.IProblemaDAO;
-import com.barrial.DAO.RecursoDAO;
 import com.barrial.DTO.ProblemaDTO;
 import com.barrial.Entity.Problema;
 import com.barrial.DAO.ProblemaDAO;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ProblemaService {
+    private final ProblemaDAO problemaDAO;
 
-
+    public ProblemaService(ProblemaDAO problemaDAO) {
+        this.problemaDAO = problemaDAO;
+    }
     public static List<ProblemaDTO> obtenerDatos() {
         return EntityaDTO(ProblemaDAO.obtenerDatos());
     }
@@ -30,8 +32,27 @@ public class ProblemaService {
         return problemaDTOS;
     }
 
-    public static void guardarEnBase(ProblemaDTO problemaDTO) {
-        ProblemaDAO.guardarEnBase(DTOaEntity(problemaDTO));
+    public void guardarEnBase(ProblemaDTO problemaDTO) {
+        validarProblemaDTO(problemaDTO);
+        normalizarDatos(problemaDTO);
+        problemaDAO.guardarEnBase(DTOaEntity(problemaDTO));
+    }
+
+    private void validarProblemaDTO(ProblemaDTO problemaDTO) {
+        Objects.requireNonNull(problemaDTO, "El DTO no puede ser nulo");
+
+        if (problemaDTO.getNombre() == null || problemaDTO.getNombre().trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío");
+        }
+        if (problemaDTO.getDescripcion() == null || problemaDTO.getDescripcion().trim().isEmpty()) {
+            throw new IllegalArgumentException("La descripción no puede ser nula o vacía");
+        }
+    }
+
+    private void normalizarDatos(ProblemaDTO problemaDTO) {
+        if (problemaDTO.getNumVotos() < 0) {
+            problemaDTO.setNumVotos(0);
+        }
     }
 
     public static Problema DTOaEntity(ProblemaDTO problemaDTO) {
@@ -55,18 +76,10 @@ public class ProblemaService {
         }
         return null;
     }
-
-    private static IProblemaDAO problemaDAO;
-
-    // Este método se usa solo para pruebas (mockeo)
-    public static void setProblemaDAO(IProblemaDAO dao) {
-        problemaDAO = dao;
-    }
-
-    public static void eliminarProblema(int id) {
-        Problema problema = problemaDAO.buscarProblema(id);
-        if (problema != null) {
-            problemaDAO.eliminarProblema(problema);
+    public boolean existeProblema(String nombre) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío");
         }
+        return problemaDAO.existsByNombre(nombre);
     }
 }

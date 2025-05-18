@@ -39,12 +39,9 @@ public class ProblemaServlet extends HttpServlet {
 
     private void eliminarSeguridad(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-
-        int idSeguridad = Integer.parseInt(request.getParameter("id"));
-        System.out.println("SE VA A ELIMINAR LA SUGERENCIA DE SEGURIDAD CON ID: " + idSeguridad);
-
-        ProblemaService.eliminarSeguridad(idSeguridad);
-
+        System.out.println("SE VA A ELIMINAR LA SUGERENCIA DE SEGURIDAD CON ID: " +
+                Integer.parseInt(request.getParameter("id")));
+        ProblemaService.eliminarSeguridad(Integer.parseInt(request.getParameter("id")));
         response.sendRedirect("mostrarSeguridad");
     }
 
