@@ -9,7 +9,7 @@ RUN apt-get update && \    \
     apt-get clean && \    \
     rm -rf /var/lib/apt/lists/*
 # Variables de entorno para la aplicación \
-ENV DB_PATH=/usr/local/tomcat/data/GestorTorneos.db
+ENV DB_PATH=/usr/local/tomcat/data/GR03_1BT3_662_25A.db
 # Copiar el archivo WAR a la carpeta webapps
 COPY target/GR03_1BT3_662_25A.war /usr/local/tomcat/webapps/ROOT.war
 # Copiar configuración personalizada de Tomcat (opcional)
