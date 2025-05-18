@@ -11,27 +11,29 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <!-- Configuración para JDK 21 -->
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
+    <!-- Configuración para JDK 17 -->
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <!-- Versiones de dependencias -->
-    <hibernate.version>7.0.0.Final</hibernate.version>
+    <hibernate.version>6.4.4.Final</hibernate.version> <!-- Versión estable para Java 17 -->
     <mssql-jdbc.version>12.6.1.jre11</mssql-jdbc.version>
-    <servlet-api.version>6.0.0</servlet-api.version>
+    <servlet-api.version>4.0.1</servlet-api.version> <!-- Mantenemos javax.servlet para Java 17 -->
     <junit-jupiter.version>5.10.0</junit-jupiter.version>
+    <spring.version>5.3.30</spring.version> <!-- Versión compatible con Java 17 -->
   </properties>
 
   <dependencies>
-    <!-- HIBERNATE (versión estable para Java 21) -->
+    <!-- HIBERNATE (versión estable para Java 17) -->
     <dependency>
       <groupId>org.hibernate.orm</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>7.0.0.Beta3</version>
     </dependency>
-    <!-- SQL Server JDBC (compatible con Java 21) -->
+
+    <!-- SQL Server JDBC -->
     <dependency>
       <groupId>com.microsoft.sqlserver</groupId>
       <artifactId>mssql-jdbc</artifactId>
@@ -39,26 +41,33 @@
       <scope>compile</scope>
     </dependency>
 
-    <!-- SERVLET API (Jakarta EE 10 para Java 21) -->
+    <!-- SERVLET API (javax para Java 17) -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
-      <version>4.0.1</version>
+      <version>${servlet-api.version}</version>
       <scope>provided</scope>
     </dependency>
 
-    <!-- JSTL (actualizado para Jakarta) -->
+    <!-- JSTL -->
     <dependency>
-      <groupId>org.glassfish.web</groupId>
-      <artifactId>jakarta.servlet.jsp.jstl</artifactId>
-      <version>3.0.1</version>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
     </dependency>
 
     <!-- Spring Context -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>6.1.5</version> <!-- Versión compatible con Java 21 -->
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!-- EL (Expression Language) -->
+    <dependency>
+      <groupId>org.glassfish</groupId>
+      <artifactId>jakarta.el</artifactId>
+      <version>4.0.2</version>
     </dependency>
 
     <!-- Testing -->
@@ -74,36 +83,27 @@
       <version>5.10.0</version>
       <scope>test</scope>
     </dependency>
-    <!-- INCLUDE -->
-    <dependency>
-      <groupId>org.glassfish</groupId>
-      <artifactId>jakarta.el</artifactId>
-      <version>4.0.2</version>
-    </dependency>
-
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>jstl</artifactId>
-      <version>1.2</version>
-    </dependency>
-
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-
   </dependencies>
 
   <build>
     <finalName>GR03_1BT3_662_25A</finalName>
     <plugins>
-      <!-- Plugin de compilación explícito para JDK 21 -->
+      <!-- Plugin de compilación -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.13.0</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
       </plugin>
 
       <!-- Plugin para empaquetar como WAR -->
