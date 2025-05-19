@@ -63,6 +63,7 @@
     </div>
 
     <%--    MODAL PARA REGISTRO--%>
+    <%--    Prueba--%>
     <div class="registroRecurso" id="registroRecurso">
         <div class="tituloRegistro">
             <h3>Registrar recurso</h3>
