@@ -1,5 +1,6 @@
 package com.barrial.Servlet;
 
+import com.barrial.DTO.EmprendimientoDTO;
 import com.barrial.DTO.RecursoDTO;
 import com.barrial.Service.EmprendimientoService;
 import com.barrial.Service.RecursoService;
@@ -10,13 +11,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/mostrarRecursos")
 public class RecursosServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("recursos", RecursoService.obtenerDatos());
+
+        String busqueda = request.getParameter("buscar");
+        System.out.println("TIPO A BUSCAR"+busqueda);
+        List<RecursoDTO> recursosDTO = new ArrayList<RecursoDTO>();
+        if (busqueda != null && !busqueda.trim().isEmpty()) {
+            for (RecursoDTO recursoDTO : RecursoService.obtenerDatos()) {
+                if(recursoDTO.getTipoRecurso().equals(busqueda)) {
+                    recursosDTO.add(recursoDTO);
+                }
+            }
+        } else {
+            recursosDTO = RecursoService.obtenerDatos();
+        }
+
+        for (RecursoDTO recursoDTO : recursosDTO) {
+            System.out.println(recursoDTO);
+        }
+
+        request.setAttribute("recursos", recursosDTO);
         request.getRequestDispatcher("jsp/recursos.jsp").forward(request, response);
     }
 

@@ -9,6 +9,13 @@
         <button type="submit" class="botonRegistroRecurso">Agregar recurso</button>
     </div>
 
+    <div class="buscarRecurso">
+        <form action="mostrarRecursos" method="GET" style="position: relative; left: 80%;">
+            <input type="text" name="buscar" placeholder="Buscar recurso">
+            <button  type="submit" name="btnBuscarRecurso">Buscar</button>
+        </form>
+    </div>
+
     <div class="recursos">
         <%
             List<RecursoDTO> recursosDTO = (List<RecursoDTO>) request.getAttribute("recursos");
