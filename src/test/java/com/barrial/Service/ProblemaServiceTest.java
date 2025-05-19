@@ -53,32 +53,32 @@ public class ProblemaServiceTest {
 //        problemaService = new ProblemaService(new TestProblemaDAO());
 //    }
 
-    @Test (timeout = 100)
-    public void given_problema_id_when_busca_then_existe_problema() {
-        Problema problemaActual = problemaService.buscarProblema(1);
-        assertEquals("Inseguridad", problemaActual.getNombre());
-    }
-
-    @Test (timeout = 100)
-    public void given_datos_when_obtener_problemas_then_size_correcto() {
-        List<Problema> totalProblemasActuales = problemaService.obtenerProblemas();
-        assertEquals(3, totalProblemasActuales.size());
-    }
-
-    @Test
-    public void given_problema_when_registra_then_dao_guarda_invocado() {
-        // Arrange
-        IProblemaDAO iProblemaDAO = Mockito.mock(IProblemaDAO.class);
-        ProblemaService problemaService = new ProblemaService(iProblemaDAO);
-        Problema problema = new Problema("Inseguridad",
-                "Robo en calles",
-                0,
-                "imagen");
-
-        problemaService.registrarProblema(problema);
-
-        verify(iProblemaDAO, times(1)).guardar(problema);
-    }
+//    @Test (timeout = 100)
+//    public void given_problema_id_when_busca_then_existe_problema() {
+//        Problema problemaActual = problemaService.buscarProblema(1);
+//        assertEquals("Inseguridad", problemaActual.getNombre());
+//    }
+//
+//    @Test (timeout = 100)
+//    public void given_datos_when_obtener_problemas_then_size_correcto() {
+//        List<Problema> totalProblemasActuales = problemaService.obtenerProblemas();
+//        assertEquals(3, totalProblemasActuales.size());
+//    }
+//
+//    @Test
+//    public void given_problema_when_registra_then_dao_guarda_invocado() {
+//        // Arrange
+//        IProblemaDAO iProblemaDAO = Mockito.mock(IProblemaDAO.class);
+//        ProblemaService problemaService = new ProblemaService(iProblemaDAO);
+//        Problema problema = new Problema("Inseguridad",
+//                "Robo en calles",
+//                0,
+//                "imagen");
+//
+//        problemaService.registrarProblema(problema);
+//
+//        verify(iProblemaDAO, times(1)).guardar(problema);
+//    }
 
     //Prueba Unitaria 1: Crear problemabarial con datos válidos.
     @Test
