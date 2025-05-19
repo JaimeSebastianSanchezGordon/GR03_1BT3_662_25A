@@ -21,3 +21,5 @@ EXPOSE 8080
 
 # Punto de entrada de Tomcat
 CMD ["catalina.sh", "run"]
+
+#Hola Mundo
