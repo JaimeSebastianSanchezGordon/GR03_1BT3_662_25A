@@ -7,6 +7,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class RecursoServiceTest {
+
+    // CREACION DE PRUEBAS UNITARIAS PARA RECURSOS
+
     // 1 Campos completos
     @Test
     public void dado_campos_completos_cuando_se_validan_entonces_retorna_true(){
