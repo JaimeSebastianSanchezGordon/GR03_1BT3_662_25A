@@ -33,6 +33,14 @@
       <version>7.0.0.Beta3</version>
     </dependency>
 
+    <!-- Para base de datos embebida -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>2.2.224</version>
+    </dependency>
+
+
     <!-- SQL Server JDBC -->
     <dependency>
       <groupId>com.microsoft.sqlserver</groupId>
