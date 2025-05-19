@@ -33,7 +33,7 @@ public class RecursoService {
         if (recursos != null && !recursos.isEmpty()) {
             return recursos;
         }
-        throw new IllegalArgumentException("NO EXISTE EL RECURSO BUSCADO");
+        throw new IllegalArgumentException("NO HAY RECURSOS REGISTRADOS");
     }
 
     public static boolean buscarRecursos(Recurso recurso) {

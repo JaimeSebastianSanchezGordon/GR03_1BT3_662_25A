@@ -7,7 +7,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class RecursoServiceTest {
-
     // 1 Campos completos
     @Test
     public void dado_campos_completos_cuando_se_validan_entonces_retorna_true(){
@@ -105,9 +104,5 @@ public class RecursoServiceTest {
             System.out.println(e.getMessage());
         }
     }
-
-
-
-
 
 }
