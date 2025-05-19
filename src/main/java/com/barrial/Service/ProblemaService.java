@@ -1,15 +1,16 @@
+
 package com.barrial.Service;
 
 import com.barrial.DTO.ProblemaDTO;
 import com.barrial.Entity.Problema;
 import com.barrial.DAO.ProblemaDAO;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class ProblemaService {
     private final ProblemaDAO problemaDAO;
+
     public ProblemaService(ProblemaDAO problemaDAO) {
         this.problemaDAO = problemaDAO;
     }
@@ -74,5 +75,11 @@ public class ProblemaService {
             }
         }
         return null;
+    }
+    public boolean existeProblema(String nombre) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío");
+        }
+        return problemaDAO.existsByNombre(nombre);
     }
 }

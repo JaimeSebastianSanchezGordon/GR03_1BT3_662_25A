@@ -10,6 +10,15 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class ProblemaDAO {
+    public boolean existsByNombre(String nombre) {
+        try (Session session = Hibernate.getSessionFactory().openSession()) {
+            Long count = session.createQuery(
+                            "SELECT COUNT(p) FROM Problema p WHERE p.nombre = :nombre", Long.class)
+                    .setParameter("nombre", nombre)
+                    .getSingleResult();
+            return count > 0;
+        }
+    }
     public static List<Problema> obtenerDatos() {
         Session session = Hibernate.getSessionFactory().openSession();
         return session.createQuery("from Problema ", Problema.class).list();

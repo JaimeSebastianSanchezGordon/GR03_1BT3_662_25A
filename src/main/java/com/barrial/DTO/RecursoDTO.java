@@ -4,10 +4,10 @@ public class RecursoDTO {
     private int id;
     private String tipoRecurso;
     private String nombreRecurso;
-    private int cantidadRecurso;
+    private String cantidadRecurso;
     private String imagen;
 
-    public RecursoDTO(String tipoRecurso, String nombreRecurso, int cantidadRecurso, String imagen) {
+    public RecursoDTO(String tipoRecurso, String nombreRecurso, String cantidadRecurso, String imagen) {
         this.tipoRecurso = tipoRecurso;
         this.nombreRecurso = nombreRecurso;
         this.cantidadRecurso = cantidadRecurso;
@@ -32,10 +32,10 @@ public class RecursoDTO {
     public void setNombreRecurso(String nombreRecurso) {
         this.nombreRecurso = nombreRecurso;
     }
-    public int getCantidadRecurso() {
+    public String getCantidadRecurso() {
         return cantidadRecurso;
     }
-    public void setCantidadRecurso(int cantidadRecurso) {
+    public void setCantidadRecurso(String cantidadRecurso) {
         this.cantidadRecurso = cantidadRecurso;
     }
     public String getImagen() {

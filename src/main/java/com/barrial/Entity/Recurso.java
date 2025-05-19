@@ -15,14 +15,14 @@ public class Recurso {
     private String nombre;
     @Basic
     @Column(name = "cantidad")
-    private int cantidad;
+    private String cantidad;
     @Basic
     @Column(name = "imagen")
     private String imagen;
 
     public Recurso() {
     }
-    public Recurso(String tipoRecurso, String nombreRecurso, int cantidadRecurso, String imagen) {
+    public Recurso(String tipoRecurso, String nombreRecurso, String cantidadRecurso, String imagen) {
         this.tipo = tipoRecurso;
         this.nombre = nombreRecurso;
         this.cantidad = cantidadRecurso;
@@ -53,11 +53,11 @@ public class Recurso {
         this.nombre = nombre;
     }
 
-    public int getCantidad() {
+    public String getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
 

@@ -45,7 +45,7 @@ public class ProblemaServiceParameterizedTest {
     public static Iterable<Object[]> parameters() {
         List<Object[]> objects = new ArrayList<Object[]>();
         objects.add(new Object[]{"Baches en calle principal", "Baches peligrosos en la avenida", 0, "bache.jpg"});
-        objects.add(new Object[]{"Falta de iluminación", null, 0, "luz.jpg"});
+        objects.add(new Object[]{"Falta de iluminación", "Lobos", 0, "luz.jpg"});
         objects.add(new Object[]{"Parque descuidado", "Basura en áreas verdes", 0, "parque.jpg"});
         objects.add(new Object[]{"Alcantarilla tapada", "Inundaciones en temporada de lluvia", 0, "alcantarilla.jpg"});
         objects.add(new Object[]{"Ruido excesivo", "Bares con música alta", 0, "ruido.jpg"});
