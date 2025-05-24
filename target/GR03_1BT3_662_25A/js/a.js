@@ -15,23 +15,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Modal functionality
-    const btnProblema = document.querySelector(".botonRegistroProblema");
-    const popRegistroProblema = document.getElementById("registroProblema");
-
+    const btnSeguridad = document.querySelector(".botonRegistroSeguridad");
+    const popRegistroSeguridad = document.getElementById("registroSeguridad");
     const overlay = document.createElement('div');
     overlay.classList.add('overlay');
     document.body.appendChild(overlay);
 
     // Open modal
-    btnProblema.onclick = function () {
-        popRegistroProblema.classList.add("active");
+    btnSeguridad.onclick = function() {
+        popRegistroSeguridad.classList.add("active");
         overlay.classList.add("active");
         document.body.style.overflow = 'hidden';
     };
 
     // Close modal when clicking overlay
     overlay.addEventListener('click', function() {
-        popRegistroProblema?.classList.remove("active");
+        popRegistroSeguridad.classList.remove("active");
         overlay.classList.remove("active");
         document.body.style.overflow = 'auto';
     });
@@ -40,12 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
     problemas.forEach(seguridad => {
         seguridad.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-10px)';
-            this.querySelector('.tituloSeguridad h3').style.color = '#3498db';
+            this.querySelector('.tipoProblema h3').style.color = '#3498db';
         });
 
         seguridad.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(-5px)';
-            this.querySelector('.tituloSeguridad').style.color = '#2c3e50';
+            this.querySelector('.tipoProblema').style.color = '#2c3e50';
         });
     });
 
@@ -73,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close modal with ESC key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            popRegistroProblema?.classList.remove("active");
+            popRegistroSeguridad.classList.remove("active");
             overlay.classList.remove("active");
             document.body.style.overflow = 'auto';
         }

@@ -220,6 +220,13 @@
     background-color: #739480;
 }
 
+#registroProblema {
+    display: none;
+}
+#registroProblema.active {
+    display: block;
+}
+
 .overlay {
     position: fixed;
     top: 0;
