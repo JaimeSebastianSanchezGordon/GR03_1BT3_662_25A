@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="com.barrial.Service.ProblemaServiceParameterizedTest" time="0.005" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="com.barrial.Service.ProblemaServiceParameterizedTest" time="0.06" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2023.1.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -66,9 +66,9 @@
     <property name="sun.stdout.encoding" value="UTF-8"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.barrial.Service.ProblemaServiceParameterizedTest" name="given_different_problems_NullDescription_when_register_then_ok[0]" time="0"/>
-  <testcase classname="com.barrial.Service.ProblemaServiceParameterizedTest" name="given_different_problems_NullDescription_when_register_then_ok[1]" time="0"/>
-  <testcase classname="com.barrial.Service.ProblemaServiceParameterizedTest" name="given_different_problems_NullDescription_when_register_then_ok[2]" time="0"/>
-  <testcase classname="com.barrial.Service.ProblemaServiceParameterizedTest" name="given_different_problems_NullDescription_when_register_then_ok[3]" time="0.005"/>
-  <testcase classname="com.barrial.Service.ProblemaServiceParameterizedTest" name="given_different_problems_NullDescription_when_register_then_ok[4]" time="0"/>
+  <testcase classname="com.barrial.Service.ProblemaServiceParameterizedTest" name="given_different_problems_NullDescription_when_register_then_ok[0]" time="0.028"/>
+  <testcase classname="com.barrial.Service.ProblemaServiceParameterizedTest" name="given_different_problems_NullDescription_when_register_then_ok[1]" time="0.012"/>
+  <testcase classname="com.barrial.Service.ProblemaServiceParameterizedTest" name="given_different_problems_NullDescription_when_register_then_ok[2]" time="0.007"/>
+  <testcase classname="com.barrial.Service.ProblemaServiceParameterizedTest" name="given_different_problems_NullDescription_when_register_then_ok[3]" time="0.006"/>
+  <testcase classname="com.barrial.Service.ProblemaServiceParameterizedTest" name="given_different_problems_NullDescription_when_register_then_ok[4]" time="0.007"/>
 </testsuite>

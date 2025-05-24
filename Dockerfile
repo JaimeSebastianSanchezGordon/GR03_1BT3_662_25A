@@ -1,4 +1,4 @@
-FROM tomcat:10-jre17
+FROM tomcat:9-jre17
 
 # Eliminar aplicaciones predeterminadas de Tomcat
 RUN rm -rf /usr/local/tomcat/webapps/*
@@ -10,7 +10,7 @@ RUN mkdir -p /usr/local/tomcat/data
 ENV H2_DATA_PATH=/usr/local/tomcat/data/appweb
 
 # Copiar el archivo WAR a la carpeta webapps
-COPY target/GR03_1BT3_662_25A.war /usr/local/tomcat/webapps/ROOT.war
+COPY target/GR03_1BT3_662_25A.war /usr/local/tomcat/webapps
 
 # Exponer el puerto de Tomcat
 EXPOSE 8080

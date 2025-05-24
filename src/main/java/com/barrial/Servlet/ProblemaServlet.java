@@ -29,7 +29,7 @@ public class ProblemaServlet extends HttpServlet {
 
         switch (accion) {
             case "crear":
-                crearSeguridad(request, response);
+                crearProblema(request, response);
                 break;
             case "eliminar":
                 eliminarSeguridad(request, response);
@@ -42,10 +42,10 @@ public class ProblemaServlet extends HttpServlet {
         System.out.println("SE VA A ELIMINAR LA SUGERENCIA DE SEGURIDAD CON ID: " +
                 Integer.parseInt(request.getParameter("id")));
         ProblemaService.eliminarSeguridad(Integer.parseInt(request.getParameter("id")));
-        response.sendRedirect("mostrarSeguridad");
+        response.sendRedirect("mostrarProblema");
     }
 
-    private void crearSeguridad(HttpServletRequest request, HttpServletResponse response)
+    private void crearProblema(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         System.out.println("SE VA A REGISTRAR UNA NUEVA SUGERENCIA DE SEGURIDAD");
         ProblemaDTO problemaDTO = new ProblemaDTO(

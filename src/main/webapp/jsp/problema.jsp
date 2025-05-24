@@ -61,7 +61,7 @@
         } else {
         %>
         <div class="noHayProblema">
-            <h2>NO HAY SEGURIDADES</h2>
+            <h2>NO HAY PROBLEMAS</h2>
         </div>
         <%
             }
@@ -91,6 +91,10 @@
 <jsp:include page="/jsp/baseM.jsp">
     <jsp:param name="title" value="MiBarrioApp-Problema"/>
     <jsp:param name="contentPage" value="${seguridadContent}"/>
-    <jsp:param name="extra_js" value="${pageContext.request.contextPath}/js/problemaJs.js"/>
-    <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/styleProblema.css"/>
+    <jsp:param name="extra_js" value="${pageContext.request.contextPath}/js/problemasJS.js"/>
+    <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/styleProblemaS.css"/>
 </jsp:include>
+
+
+
+

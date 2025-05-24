@@ -29,7 +29,7 @@ public class ProblemaServiceTest {
             mockDAO.editarSeguridad(problema);
         });
         //Comprobar que la excepción lanzada es la esperada
-        assertEquals("DB error", exception.getMessage());
+        assertEquals("DB Error", exception.getMessage());
 
         System.out.println("Test con Mock");
     }

@@ -102,15 +102,19 @@
   <build>
     <finalName>GR03_1BT3_662_25A</finalName>
     <plugins>
-      <!-- Plugin de compilación -->
+      <!-- Plugin de compilación (ÚNICA DECLARACIÓN) -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.13.0</version>
+        <version>3.13.0</version> <!-- Usa la versión más reciente -->
         <configuration>
-          <source>${maven.compiler.source}</source>
-          <target>${maven.compiler.target}</target>
-          <encoding>${project.build.sourceEncoding}</encoding>
+          <source>17</source> <!-- Puedes usar ${maven.compiler.source} o el valor directo -->
+          <target>17</target>
+          <encoding>UTF-8</encoding>
+          <fork>true</fork>
+          <compilerArgs>
+            <arg>-parameters</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
 
