@@ -10,6 +10,7 @@ com\barrial\Entity\Problema.class
 com\barrial\DTO\ProblemaDTO.class
 com\barrial\Main.class
 com\barrial\Service\RecursoService.class
+com\barrial\API\EmprendimientoAPI.class
 com\barrial\DAO\EventoDAO.class
 com\barrial\Service\ProblemaService.class
 com\barrial\Entity\Recurso.class

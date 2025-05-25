@@ -1,24 +1,25 @@
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\DAO\EmprendimientoDAO.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\DAO\EventoDAO.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\DAO\ProblemaDAO.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\DAO\RecursoDAO.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\DTO\EmprendimientoDTO.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\DTO\EventoDTO.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\DTO\ProblemaDTO.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\DTO\RecursoDTO.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Entity\Emprendimiento.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Entity\Evento.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Entity\Problema.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Entity\Recurso.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Hibernate.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Main.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Service\EmprendimientoService.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Service\EventoService.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Service\IRecursoService.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Service\ProblemaService.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Service\RecursoService.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Servlet\EmprendimientoServlet.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Servlet\EventosServlet.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Servlet\ProblemaServlet.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Servlet\RecursosServlet.java
-C:\Users\usuar\OneDrive\Documentos\EPN\Sexto semestre\Meto Agile\AppWebBarrio\src\main\java\com\barrial\Validation\ValidateProblema.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\API\EmprendimientoAPI.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\DAO\EmprendimientoDAO.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\DAO\EventoDAO.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\DAO\ProblemaDAO.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\DAO\RecursoDAO.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\DTO\EmprendimientoDTO.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\DTO\EventoDTO.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\DTO\ProblemaDTO.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\DTO\RecursoDTO.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Entity\Emprendimiento.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Entity\Evento.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Entity\Problema.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Entity\Recurso.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Hibernate.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Main.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Service\EmprendimientoService.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Service\EventoService.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Service\IRecursoService.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Service\ProblemaService.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Service\RecursoService.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Servlet\EmprendimientoServlet.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Servlet\EventosServlet.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Servlet\ProblemaServlet.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Servlet\RecursosServlet.java
+C:\Users\Usuario\Desktop\SGCM-2A (2\GR03_1BT3_662_25A\src\main\java\com\barrial\Validation\ValidateProblema.java
