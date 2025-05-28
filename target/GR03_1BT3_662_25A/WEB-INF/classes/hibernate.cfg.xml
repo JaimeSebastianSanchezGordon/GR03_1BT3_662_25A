@@ -9,7 +9,7 @@
         <!-- Configuración de la conexión a la base de datos -->
         <!-- Configuración de H2 -->
         <property name="hibernate.connection.driver_class">org.h2.Driver</property>
-        <property name="hibernate.connection.url">jdbc:h2:./data/appweb;MODE=MSSQLServer;AUTO_SERVER=TRUE</property>
+        <property name="hibernate.connection.url"> bc:h2:file:${user.home}/appweb_db/db;MODE=MSSQLServer;AUTO_SERVER=TRUE</property>
         <property name="hibernate.connection.username">sa</property>
         <property name="hibernate.connection.password"></property>
         <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
