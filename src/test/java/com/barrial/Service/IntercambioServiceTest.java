@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mockStatic;
 
 class IntercambioServiceTest {
-    // Test 1
+    // Test 1: verificar que se transforma un DTO a una entidad correctamente
     @Test
     void dado_un_DTO_cuando_se_transforma_a_Entity_entonces_retorna_true() {
         IntercambioDTO dto = new IntercambioDTO("Libro", "Buen estado", "img.jpg",
@@ -36,6 +36,17 @@ class IntercambioServiceTest {
         assertTrue(IntercambioService.esFormatoImagenValido("perfil.png"));
     }
 
+    // Test 3: Verifica que se lance una excepción cuando el nombre del DTO contiene caracteres no permitidos.
+    @Test
+    void dado_DTO_cuando_nombre_invalido_entonces_lanza_excepcion() {
+        IntercambioDTO dto = new IntercambioDTO("Nombre@Invalido", "Descripción válida", "imagen.jpg", "Objeto", "Descripción objeto");
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            IntercambioService.DTOaEntity(dto);
+        });
+
+        assertTrue(exception.getMessage().contains("Datos inválidos"));
+    }
 
     // Test 4: DAO mock devuelve lista vacía
     @Test
