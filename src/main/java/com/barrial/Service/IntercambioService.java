@@ -72,10 +72,11 @@ public class IntercambioService {
     }
 
     public static boolean camposCompletos(IntercambioDTO dto) {
-        return !dto.getNombre().isEmpty()
-                && !dto.getDescripcion().isEmpty()
-                && !dto.getImagen().isEmpty()
-                && !dto.getObjetoTrueque().isEmpty()
-                && !dto.getDescripcionObjetoTrueque().isEmpty();
+        return dto != null
+                && dto.getNombre() != null && !dto.getNombre().isEmpty()
+                && dto.getDescripcion() != null && !dto.getDescripcion().isEmpty()
+                && dto.getImagen() != null && !dto.getImagen().isEmpty()
+                && dto.getObjetoTrueque() != null && !dto.getObjetoTrueque().isEmpty()
+                && dto.getDescripcionObjetoTrueque() != null && !dto.getDescripcionObjetoTrueque().isEmpty();
     }
 }
