@@ -16,8 +16,7 @@ public class IntercambioService {
     public static Intercambio DTOaEntity(IntercambioDTO intercambioDTO) {
         if(!camposCompletos(intercambioDTO)){
             throw new IllegalArgumentException("Faltan campos obligatorios en el DTO: " + intercambioDTO);
-        } else if (!esFormatoImagenValido(intercambioDTO.getImagen())
-                || !esDescripcionLarga(intercambioDTO.getDescripcion()) || !contieneSoloCaracteresValidos(intercambioDTO.getNombre())){
+        } else if (!esDescripcionLarga(intercambioDTO.getDescripcion()) || !contieneSoloCaracteresValidos(intercambioDTO.getNombre())){
             throw new IllegalArgumentException("Datos inválidos en el DTO: " + intercambioDTO);
         }
 
@@ -37,7 +36,7 @@ public class IntercambioService {
         return EntityaDTO(IntercambioDAO.obtenerDatos());
     }
 
-    private static List<IntercambioDTO> EntityaDTO(List<Intercambio> intercambios) {
+    public static List<IntercambioDTO> EntityaDTO(List<Intercambio> intercambios) {
         List<IntercambioDTO> intercambiosDTO = new ArrayList<>();
         for (Intercambio intercambio : intercambios) {
             IntercambioDTO intercambioDTO = new IntercambioDTO();
