@@ -1,11 +1,15 @@
 com\barrial\Servlet\EventosServlet.class
+com\barrial\Service\IntercambioService.class
+com\barrial\DTO\IntercambioDTO.class
 com\barrial\Servlet\EmprendimientoServlet.class
 com\barrial\Entity\Emprendimiento.class
 com\barrial\Entity\Evento.class
+com\barrial\Entity\Intercambio.class
 com\barrial\DTO\EmprendimientoDTO.class
 com\barrial\Service\EventoService.class
 com\barrial\Servlet\RecursosServlet.class
 com\barrial\Validation\ValidateProblema.class
+com\barrial\DAO\IntercambioDAO.class
 com\barrial\Entity\Problema.class
 com\barrial\DTO\ProblemaDTO.class
 com\barrial\Main.class
@@ -20,5 +24,6 @@ com\barrial\DTO\EventoDTO.class
 com\barrial\DAO\ProblemaDAO.class
 com\barrial\Hibernate.class
 com\barrial\DAO\RecursoDAO.class
+com\barrial\Servlet\IntercambioServlet.class
 com\barrial\Servlet\ProblemaServlet.class
 com\barrial\DTO\RecursoDTO.class
