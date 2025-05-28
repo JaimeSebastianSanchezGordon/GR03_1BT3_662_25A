@@ -111,14 +111,7 @@
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
-    .contenidoIntercambios {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 1rem;
-        padding: 0 2rem;
-        width: 97%;
-    }
+
 
 
 </style>
