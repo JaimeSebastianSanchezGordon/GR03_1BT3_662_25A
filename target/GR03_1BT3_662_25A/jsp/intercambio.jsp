@@ -51,14 +51,76 @@
         gap: 20px;
     }
 
-    .prestamo{
-        border: solid black;
+    .trueque {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
         display: grid;
-        grid-template-columns: auto auto;
-        text-align: center;
-        padding: 10px;
-        box-sizing: border-box;
+        grid-template-columns: 200px 200px;
+        grid-auto-rows: auto auto auto;
+        width: 400px;
+        border: 3px solid #2c3e50;
     }
+
+    .tituloCategoria {
+        grid-column: 1/4;
+        grid-row: 1;
+        padding: 1rem;
+        background-color: #2c3e50;
+        color: white;
+        display: flex;
+        align-items: center;
+    }
+
+    .objetoADar {
+        grid-column: 1;
+        grid-row: 2;
+        padding: 1rem;
+        background-color: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .objetoARecivir {
+        grid-column: 2/3;
+        grid-row: 2;
+        padding: 1rem;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .botonRegistroIntercambio {
+        background-color: #516591;
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .botonRegistroIntercambio:hover {
+        background-color: rgba(68, 139, 147, 0.8);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .contenidoIntercambios {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 1rem;
+        padding: 0 2rem;
+        width: 97%;
+    }
+
+
 </style>
 
 <c:set var="intercambioContent">
