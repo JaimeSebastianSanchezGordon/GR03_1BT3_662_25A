@@ -37,6 +37,6 @@
     <jsp:param name="title" value="MiBarrioApp-Intercambio"/>
     <jsp:param name="contentPage" value="${intercambioContent}"/>
     <jsp:param name="extra_js" value="${pageContext.request.contextPath}/js/1.js"/>
-    <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/b.css"/>
+    <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/styleIntercambio.css"/>
 </jsp:include>
 
