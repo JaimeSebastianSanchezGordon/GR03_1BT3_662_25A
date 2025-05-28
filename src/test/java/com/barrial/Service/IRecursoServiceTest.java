@@ -21,8 +21,8 @@ public class IRecursoServiceTest {
                         "5",
                         "imagen");
         IRecursoService iRecursoService = Mockito.mock(IRecursoService.class);
-        Mockito.when(iRecursoService.buscarRecurso(recursoRegistrado)).thenReturn(true);
-        assertTrue("NO EXISTE EL RECURSO BUSCADO",iRecursoService.buscarRecurso(recursoRegistrado));
+        Mockito.when(iRecursoService.buscarRecurso(recursoNoRegistrado)).thenReturn(true);
+        assertTrue("NO EXISTE EL RECURSO BUSCADO",iRecursoService.buscarRecurso(recursoNoRegistrado));
     }
 
 
