@@ -28,6 +28,7 @@ public class RecursoService {
 
     // GUARDAR EN BASE
     public static void guardarEnBase(RecursoDTO recursoDTO) {
+
         RecursoDAO.guardarEnBase(DTOaEntity(recursoDTO));
     }
 
@@ -74,6 +75,8 @@ public class RecursoService {
         }
         return null;
     }
+
+//    =====================================================================================
 
     public static boolean camposCompletos(RecursoDTO recurso) {
         if(!recurso.getNombreRecurso().isEmpty()
