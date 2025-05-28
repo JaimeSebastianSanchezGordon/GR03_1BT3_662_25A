@@ -1,3 +1,4 @@
+<%@ page import="com.barrial.DTO.UsuarioDTO" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -18,9 +19,30 @@
   <c:if test="${not empty param.extra_css}">
     <link rel="stylesheet" href="${param.extra_css}">
   </c:if>
+  <style>
+    .titulo{
+      display: grid;
+      grid-template-columns: 10% auto 10%;
+    }
+
+    .titulo h2 {
+      margin: 0;
+    }
+
+    .titulo button{
+      background: darkred;
+      color: white;
+      padding: 10px 20px;
+      margin: 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+  </style>
 </head>
 
 <body>
+
 <div class="pantallaCompletaEmprendimiento">
   <div class="titulo">
     <h1>COMUNICACION BARRIAL</h1>
@@ -32,9 +54,9 @@
       <a href="<%= request.getContextPath() %>/mostrarEventos">EVENTOS</a>
       <a href="<%= request.getContextPath() %>/mostrarRecursos">RECOLECCION RECURSOS</a>
       <a href="<%= request.getContextPath() %>/mostrarProblema">PROBLEMAS</a>
+      <a href="">INTERCAMBIO</a>
     </nav>
   </aside>
-
   <!-- Contenido principal - Área derecha -->
   <main class="pantallaEmprendimientos">
     <c:choose>
