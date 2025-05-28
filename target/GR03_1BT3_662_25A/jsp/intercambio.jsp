@@ -30,13 +30,30 @@
     </div>
 
     <%-- MODAL PARA REGISTRO--%>
-
+    <div class="formularioRegistroTrueque" id="registroIntercambio">
+        <h2>REGISTRO DE INTERCAMBIO</h2>
+        <form action="" method="POST">
+            <h2>OBJETO A DAR</h2>
+            <input type="text" name="nombre" placeholder="Nombre">
+            <br>
+            <input type="text" name="descripcion" placeholder="Descripcion">
+            <br>
+            <input type="text" name="imagen" placeholder="Imagen">
+            <br>
+            <h2>OBJETO A RECIVIR</h2>
+            <input type="text" name="articulo" placeholder="Articulo deseado" >
+            <br>
+            <input type="text" name="descripcionArticulo" placeholder="Descripcion del articulo deseado">
+            <br>
+            <button type="submit">Registar intercambio</button>
+        </form>
+    </div>
 </c:set>
 
 <jsp:include page="/jsp/baseM.jsp">
     <jsp:param name="title" value="MiBarrioApp-Intercambio"/>
     <jsp:param name="contentPage" value="${intercambioContent}"/>
-    <jsp:param name="extra_js" value="${pageContext.request.contextPath}/js/1.js"/>
+    <jsp:param name="extra_js" value="${pageContext.request.contextPath}/js/intercambio.js"/>
     <jsp:param name="extra_css" value="${pageContext.request.contextPath}/css/styleIntercambio.css"/>
 </jsp:include>
 

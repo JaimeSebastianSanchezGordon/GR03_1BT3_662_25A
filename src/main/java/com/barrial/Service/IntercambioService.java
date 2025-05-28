@@ -37,7 +37,7 @@ public class IntercambioService {
         return EntityaDTO(IntercambioDAO.obtenerDatos());
     }
 
-    private static List<IntercambioDTO> EntityaDTO(List<Intercambio> intercambios) {
+    public static List<IntercambioDTO> EntityaDTO(List<Intercambio> intercambios) {
         List<IntercambioDTO> intercambiosDTO = new ArrayList<>();
         for (Intercambio intercambio : intercambios) {
             IntercambioDTO intercambioDTO = new IntercambioDTO();
