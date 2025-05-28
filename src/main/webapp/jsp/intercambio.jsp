@@ -126,6 +126,42 @@
         </div>
     </form>
 
+    <script>
+        function validarFormulario(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const descripcion = document.getElementById('descripcion').value.trim();
+            const imagen = document.getElementById('imagen').value.trim();
+            const trueque = document.getElementById('trueque').value.trim();
+            const descripcionTrueque = document.getElementById('descripcionTrueque').value.trim();
+
+            const campos = [nombre, descripcion, imagen, trueque, descripcionTrueque];
+
+            const regexSoloLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s.,]+$/;
+
+            // Validar campos vacíos
+            if (campos.some(campo => campo === '')) {
+                alert("Por favor, llena todos los campos antes de enviar.");
+                return;
+            }
+
+            // Validar campos específicos que no deben tener números ni símbolos especiales
+            if (!regexSoloLetras.test(nombre)) {
+                alert("El campo 'Nombre' contiene caracteres no permitidos.");
+                return;
+            }
+
+            if (!regexSoloLetras.test(trueque)) {
+                alert("El campo 'Artículo deseado' contiene caracteres no permitidos.");
+                return;
+            }
+
+            alert("¡Formulario enviado correctamente!");
+            event.target.submit(); // Enviar el formulario si todo es correcto
+        }
+    </script>
+
 
 </c:set>
 
