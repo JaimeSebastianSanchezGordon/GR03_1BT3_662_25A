@@ -14,12 +14,11 @@ public class IntercambioService {
     }
 
     public static Intercambio DTOaEntity(IntercambioDTO intercambioDTO) {
-//        if(!camposCompletos(intercambioDTO)){
-//            throw new IllegalArgumentException("Faltan campos obligatorios en el DTO: " + intercambioDTO);
-//        } else if (!esFormatoImagenValido(intercambioDTO.getImagen())
-//                || !esDescripcionLarga(intercambioDTO.getDescripcion()) || !contieneSoloCaracteresValidos(intercambioDTO.getNombre())){
-//            throw new IllegalArgumentException("Datos inválidos en el DTO: " + intercambioDTO);
-//        }
+        if(!camposCompletos(intercambioDTO)){
+            throw new IllegalArgumentException("Faltan campos obligatorios en el DTO: " + intercambioDTO);
+        } else if (!esDescripcionLarga(intercambioDTO.getDescripcion()) || !contieneSoloCaracteresValidos(intercambioDTO.getNombre())){
+            throw new IllegalArgumentException("Datos inválidos en el DTO: " + intercambioDTO);
+        }
 
         Intercambio intercambio = new Intercambio();
         intercambio.setNombre(intercambioDTO.getNombre());
