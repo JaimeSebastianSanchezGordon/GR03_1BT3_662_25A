@@ -1,3 +1,6 @@
 com\barrial\Service\ProblemaServiceParameterizedTest.class
 com\barrial\Service\ProblemaServiceExistenceTest.class
 com\barrial\Service\ProblemaServiceTest.class
+com\barrial\Service\RecursoServiceParametersTest.class
+com\barrial\Service\RecursoServiceTest.class
+com\barrial\Service\IRecursoServiceTest.class

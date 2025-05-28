@@ -5,7 +5,7 @@
 <%@ page import="com.barrial.DTO.EventoDTO" %>
 
 <c:set var="eventoContent">
-    <div class="encabezadoEmprendimiento">
+    <div class="encabezadoEvento">
         <h2>EVENTOS</h2>
         <button type="submit" class="botonRegistroEvento">Agregar evento</button>
     </div>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="com.barrial.Service.ProblemaServiceExistenceTest" time="1.968" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="com.barrial.Service.ProblemaServiceExistenceTest" time="0.387" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2023.1.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -66,8 +66,8 @@
     <property name="sun.stdout.encoding" value="UTF-8"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.barrial.Service.ProblemaServiceExistenceTest" name="given_problem_name_when_check_existence_then_return_expected[0]" time="1.966"/>
-  <testcase classname="com.barrial.Service.ProblemaServiceExistenceTest" name="given_problem_name_when_check_existence_then_return_expected[1]" time="0"/>
-  <testcase classname="com.barrial.Service.ProblemaServiceExistenceTest" name="given_problem_name_when_check_existence_then_return_expected[2]" time="0.001"/>
-  <testcase classname="com.barrial.Service.ProblemaServiceExistenceTest" name="given_problem_name_when_check_existence_then_return_expected[3]" time="0.001"/>
+  <testcase classname="com.barrial.Service.ProblemaServiceExistenceTest" name="given_problem_name_when_check_existence_then_return_expected[0]" time="0.366"/>
+  <testcase classname="com.barrial.Service.ProblemaServiceExistenceTest" name="given_problem_name_when_check_existence_then_return_expected[1]" time="0.007"/>
+  <testcase classname="com.barrial.Service.ProblemaServiceExistenceTest" name="given_problem_name_when_check_existence_then_return_expected[2]" time="0.008"/>
+  <testcase classname="com.barrial.Service.ProblemaServiceExistenceTest" name="given_problem_name_when_check_existence_then_return_expected[3]" time="0.006"/>
 </testsuite>
