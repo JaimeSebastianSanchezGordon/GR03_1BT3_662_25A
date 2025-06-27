@@ -12,3 +12,4 @@ steps:
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
     displayName: 'Compilar y ejecutar pruebas con Maven'
+
